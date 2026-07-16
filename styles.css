@@ -1,0 +1,1269 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --page-bg: #fbf9f2;
+    --page-text: #050505;
+    --app-bg: #e8e6df;
+    --page-border: #ddd8c9;
+    --header-text: #555;
+    --header-line: #ece7d8;
+    --chord: #b71c1c;
+    --button-bg: rgba(255, 255, 255, 0.88);
+    --button-text: #333;
+    --button-border: rgba(0, 0, 0, 0.12);
+    --book-shadow: rgba(60, 50, 30, 0.18);
+    --cover-1: #aab69f;
+    --cover-2: #97a78c;
+    --cover-3: #879979;
+    --book-width: 500px;
+    --book-height: 650px;
+    --page-pad-y: 28px;
+    --page-pad-x: 36px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--app-bg);
+    perspective: 2000px;
+    overflow: hidden;
+    /* Desactiva el zoom por doble-toque accidental (deja vivo el pinch con
+       dos dedos) y quita el retardo de 300ms al tocar. */
+    touch-action: manipulation;
+    transition: background-color 0.35s ease;
+}
+
+body.dark-mode {
+    --page-bg: #161616;
+    --page-text: #ece7de;
+    --app-bg: #101010;
+    --page-border: #2d2d2d;
+    --header-text: #c8bfb7;
+    --header-line: #34302c;
+    --chord: #ff7a7a;
+    --button-bg: rgba(30, 30, 30, 0.9);
+    --button-text: #f4eee8;
+    --button-border: rgba(255, 255, 255, 0.16);
+    --book-shadow: rgba(0, 0, 0, 0.55);
+}
+
+.top-controls {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+/* ── Botón de menú único (tema / índice / búsqueda), transparente ── */
+.menu-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--page-text);
+    font-family: "Segoe UI Symbol", Arial, sans-serif;
+    font-size: 1.45rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.40;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.menu-btn:hover,
+.top-controls.menu-open .menu-btn {
+    opacity: 0.8;
+}
+
+/* Grupo de botones: oculto hasta abrir el menú */
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.top-controls.menu-open .menu-items {
+    max-height: 240px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.theme-toggle {
+    width: 64px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid var(--button-border);
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+}
+
+.theme-toggle-track {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.theme-toggle-thumb {
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
+}
+
+body.dark-mode .theme-toggle-thumb {
+    left: calc(100% - 25px);
+    background: #2a2a2a;
+}
+
+.theme-emoji {
+    position: absolute;
+    font-size: 13px;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.theme-emoji.dark {
+    opacity: 0;
+}
+
+body.dark-mode .theme-emoji.light {
+    opacity: 0;
+}
+
+body.dark-mode .theme-emoji.dark {
+    opacity: 1;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    transition: transform 0.7s cubic-bezier(0.2, 0.72, 0.16, 1);
+}
+
+.book {
+    width: var(--book-width);
+    height: var(--book-height);
+    flex: 0 0 var(--book-width);
+    position: relative;
+    transition: transform 0.7s cubic-bezier(0.2, 0.72, 0.16, 1);
+    transform: translateZ(0);
+    box-shadow: 0 16px 26px var(--book-shadow);
+    --stack-left: 2px;
+    --stack-right: 22px;
+}
+
+/* Pila de hojas a la DERECHA (grosor del libro) — diseño tomado de MayoTEST.
+   Nota: queda con grosor fijo porque animarla requiere JS (no se toco). */
+.book::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 100%;
+    width: var(--stack-right);
+    background:
+        repeating-linear-gradient(to right,
+            #f3efe4 0px, #f3efe4 1px,
+            #d8d2c0 1px, #d8d2c0 2px);
+    border-radius: 0 3px 3px 0;
+    box-shadow: 2px 2px 6px rgba(60,50,30,0.18);
+    transition: width 0.5s ease;
+    z-index: 0;
+}
+
+.book::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    right: 200%;
+    width: var(--stack-left);
+    background:
+        repeating-linear-gradient(to left,
+            #f3efe4 0px, #f3efe4 1px,
+            #d8d2c0 1px, #d8d2c0 2px);
+    border-radius: 3px 0 0 3px;
+    box-shadow: -2px 2px 6px rgba(60,50,30,0.18);
+    transition: width 0.5s ease;
+    z-index: 0;
+}
+
+body.dark-mode .book::after {
+    background: repeating-linear-gradient(to right, #2a2722 0px, #2a2722 1px, #1a1815 1px, #1a1815 2px);
+}
+body.dark-mode .book::before {
+    background: repeating-linear-gradient(to left, #2a2722 0px, #2a2722 1px, #1a1815 1px, #1a1815 2px);
+}
+
+.paper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1.05s cubic-bezier(0.18, 0.78, 0.18, 1);
+}
+
+/* Solo la hoja que esta girando se promueve a capa GPU. Antes las 72 hojas
+   tenian will-change permanente, lo que saturaba la memoria grafica del movil
+   y crasheaba el navegador al voltear pagina, abrir busqueda o hacer zoom. */
+.paper.turning {
+    will-change: transform;
+}
+
+.front,
+.back {
+    background-color: var(--page-bg);
+    background-image:
+        radial-gradient(rgba(140,120,80,0.025) 1px, transparent 1px);
+    background-size: 14px 14px;
+    color: var(--page-text);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 1px solid var(--page-border);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+    border-radius: 3px 7px 7px 3px;
+    padding: var(--page-pad-y) var(--page-pad-x);
+    overflow: hidden;
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* ── Tapa del libro (pasta verde-gris tipo piel/cuero) — diseño de MayoTEST ── */
+.cover-page {
+    background-color: var(--cover-2);
+    background-image:
+        radial-gradient(ellipse at 28% 22%, rgba(255,255,255,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 80%, rgba(0,0,0,0.08) 0%, transparent 55%),
+        linear-gradient(135deg, var(--cover-1) 0%, var(--cover-2) 55%, var(--cover-3) 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: 1px solid var(--cover-3);
+    border-radius: 3px 11px 11px 3px;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 0;
+}
+
+.cover-emblem {
+    position: relative;
+    z-index: 2;
+    width: 150px;
+    max-width: 55%;
+    height: auto;
+    opacity: 0.35;
+    filter: brightness(0) invert(1) opacity(0.4);
+}
+
+/* Imagen del título sobre la pasta (tercio superior) */
+.cover-title {
+    position: relative;
+    z-index: 2;
+    margin-top: 90px;
+    max-width: 80%;
+    max-height: 45%;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+.front::before,
+.back::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.55s ease;
+}
+
+.front::before {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 38%, rgba(0, 0, 0, 0.1));
+}
+
+.back::before {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), transparent 48%, rgba(0, 0, 0, 0.3));
+}
+
+.paper.turning .front::before,
+.paper.turning .back::before {
+    opacity: 0.42;
+}
+
+.paper.turning .front,
+.paper.turning .back {
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22), inset 18px 0 24px rgba(0, 0, 0, 0.05);
+}
+
+.image-page {
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.page-image {
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    object-fit: cover;
+    display: block;
+    transform: scale(1.01);
+}
+
+.clean-bottom-mark::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 90px;
+    height: 46px;
+    background: #fff;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.clean-section-mark::after {
+    bottom: 0;
+    width: 180px;
+    height: 86px;
+}
+
+.blank-page {
+    background-color: var(--page-bg);
+}
+
+.section-page {
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title-page {
+    color: var(--page-text);
+    font-family: Arial, sans-serif;
+    font-size: 2.45rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.decor-section-page {
+    align-items: center;
+    justify-content: center;
+    background: var(--page-bg);
+    overflow: hidden;
+}
+
+.decor-section-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-4px);
+}
+
+.decor-section-title {
+    color: #c88778;
+    position: relative;
+    z-index: 2;
+    font-family: "Bahnschrift Light Condensed", "Agency FB", "Arial Narrow", "Segoe UI Light", Arial, sans-serif;
+    font-size: 4.85rem;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 0.88;
+    text-align: center;
+    text-transform: uppercase;
+    transform: scaleX(0.68) scaleY(1.18);
+    transform-origin: center bottom;
+    white-space: nowrap;
+}
+
+.decor-section-title-long {
+    max-width: 390px;
+    font-size: 3.55rem;
+    line-height: 0.92;
+    white-space: normal;
+}
+
+.decor-section-leaves {
+    width: 345px;
+    max-width: 86%;
+    height: auto;
+    margin-top: -2px;
+    display: block;
+}
+
+body.dark-mode .decor-section-title {
+    color: #d79a8c;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.flipped {
+    transform: rotateY(-180deg);
+}
+
+.cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cover h1 {
+    font-family: Arial, sans-serif;
+    font-size: 2.5rem;
+    border: 3px double #000;
+    padding: 15px;
+}
+
+.header {
+    width: 100%;
+    margin: 2px auto 16px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--header-line);
+    color: var(--header-text);
+    font-family: "Segoe Print", "Comic Sans MS", cursive;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.song-sheet {
+    width: 292px;
+    max-width: 100%;
+    margin: 0 auto;
+    color: var(--page-text);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.song-title {
+    margin-bottom: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: underline;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.song-line {
+    position: relative;
+    min-height: 39px;
+    margin-bottom: 1px;
+    overflow: hidden;
+}
+
+.song-line.compact {
+    min-height: 31px;
+}
+
+.song-line.no-chord {
+    min-height: 22px;
+}
+
+.song-line .lyric {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-wrap: anywhere;
+}
+
+.song-line .chord {
+    position: absolute;
+    top: 0;
+    color: var(--chord);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 700;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.song-space {
+    height: 14px;
+}
+
+.song-two {
+    width: 360px;
+    max-width: 100%;
+    margin: 0 auto;
+    color: var(--page-text);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.12;
+}
+
+.song-two .song-title {
+    margin-bottom: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.song-two .pair {
+    margin-bottom: 4px;
+}
+
+.song-two .chord-row,
+.song-two .lyric-row {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.song-two .chord-row {
+    min-height: 14px;
+    color: var(--chord);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.song-two .song-space {
+    height: 8px;
+}
+
+.song-two .extra-lyrics {
+    margin-top: 10px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.16;
+}
+
+.song-two .extra-lyrics p {
+    margin-bottom: 9px;
+}
+
+.lyrics {
+    width: 360px;
+    max-width: 100%;
+    margin: 0 auto;
+    color: var(--page-text);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.lyrics p {
+    margin-bottom: 18px;
+    overflow-wrap: anywhere;
+}
+
+.lyrics .song-title {
+    margin-bottom: 22px;
+}
+
+.song-page {
+    width: 368px;
+    max-width: 100%;
+    margin: 0 auto;
+    color: var(--page-text);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12.5px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.song-page.small {
+    font-size: 12px;
+    line-height: 1.05;
+}
+
+.song-page.tiny {
+    font-size: 8.7px;
+    line-height: 1.02;
+}
+
+.song-page.ultra {
+    font-size: 8.2px;
+    line-height: 1.01;
+}
+
+.song-page.wide {
+    width: 414px;
+    max-width: 100%;
+}
+
+.song-page .song-title {
+    margin-bottom: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.song-page .note {
+    margin-top: -4px;
+    margin-bottom: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 0.68rem;
+}
+
+.song-page .pair {
+    margin-bottom: 3px;
+}
+
+.song-page.small .pair {
+    margin-bottom: 1px;
+}
+
+.song-page.tiny .pair {
+    margin-bottom: 1px;
+}
+
+.song-page.ultra .pair {
+    margin-bottom: 1px;
+}
+
+.song-page .chord-row,
+.song-page .lyric-row {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.song-page .chord-row {
+    min-height: 12px;
+    color: var(--chord);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+.song-page.small .chord-row {
+    min-height: 11px;
+    font-size: 12px;
+}
+
+.song-page.tiny .chord-row {
+    min-height: 8px;
+    font-size: 8.7px;
+}
+
+.song-page.ultra .chord-row {
+    min-height: 8px;
+    font-size: 8.2px;
+}
+
+.song-page.ultra .song-title {
+    margin-bottom: 4px;
+}
+
+.song-page p {
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+}
+
+.song-page .plain-block {
+    margin-top: 7px;
+    overflow-wrap: anywhere;
+}
+
+.song-page .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.song-page.flow-cols {
+    column-count: 2;
+    column-gap: 16px;
+    column-fill: auto;
+    height: 455px;
+    width: 414px;
+    max-width: 100%;
+}
+
+.song-page.flow-cols .pair {
+    overflow: hidden;
+}
+
+.song-page.flow-cols .chord-row,
+.song-page.flow-cols .lyric-row {
+    white-space: pre-wrap;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+.song-page.flow-cols .pair,
+.song-page.flow-cols .plain-block {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.song-page.flow-cols .song-title {
+    column-span: all;
+    -webkit-column-span: all;
+}
+
+.song-page .column-title {
+    margin-bottom: 4px;
+    color: var(--header-text);
+    font-family: Arial, sans-serif;
+    font-size: 0.64rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer-img {
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+.page-num {
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    color: #777;
+}
+
+.btn-nav {
+    position: absolute;
+    bottom: 30px;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    font-family: "Segoe UI Symbol", "Arial", sans-serif;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--page-text);
+    opacity: 0.10;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+    padding: 0;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-nav:hover,
+.btn-nav:active {
+    opacity: 0.35;
+}
+
+#prevBtn {
+    left: 50px;
+}
+
+#nextBtn {
+    right: 50px;
+}
+
+/* z-index de páginas manejado dinámicamente por script.js */
+
+/* ── Página con cantos cortos en zigzag diagonal (Kirie, Gloria, etc) ── */
+.short-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    flex: 1;
+    min-height: 0;
+    column-gap: 18px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.short-grid .short-song {
+    display: block;
+    color: var(--page-text);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10.5px;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+}
+
+/* Posiciones zigzag: 1 (f1-izq), 4 (f2-der), 5 (f3-izq), 8 (f4-der) */
+.short-grid .pos-1 { grid-column: 1; grid-row: 1; }
+.short-grid .pos-4 { grid-column: 2; grid-row: 2; }
+.short-grid .pos-5 { grid-column: 1; grid-row: 3; }
+.short-grid .pos-8 { grid-column: 2; grid-row: 4; }
+
+.short-grid .short-song .song-title {
+    margin-bottom: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.short-grid .pair {
+    margin-bottom: 2px;
+}
+
+.short-grid .chord-row,
+.short-grid .lyric-row {
+    white-space: pre;
+}
+
+.short-grid .chord-row {
+    min-height: 10px;
+    color: var(--chord);
+    font-weight: 700;
+}
+
+
+/* ── Página de índice ── */
+.index-page {
+    padding: 18px 28px 20px;
+    overflow: hidden;
+}
+
+.index-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.index-section-label {
+    font-family: Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--chord);
+    margin: 6px 0 2px;
+    letter-spacing: 0.03em;
+}
+
+.index-section-label:first-child {
+    margin-top: 0;
+}
+
+.index-entry {
+    display: flex;
+    align-items: baseline;
+    padding: 0;
+    cursor: pointer;
+    color: var(--page-text);
+    text-decoration: none;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    font-family: Arial, sans-serif;
+    transition: color 0.15s ease;
+    user-select: none;
+}
+
+.index-entry:hover,
+.index-entry:focus {
+    color: var(--chord);
+    outline: none;
+}
+
+.index-name {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.index-dots {
+    flex: 1;
+    border-bottom: 1px dotted currentColor;
+    opacity: 0.28;
+    margin: 0 4px 3px;
+    min-width: 8px;
+}
+
+.index-num {
+    font-weight: 600;
+    min-width: 22px;
+    text-align: right;
+    flex-shrink: 0;
+    font-size: 0.67rem;
+}
+
+/* ── Botón de regreso al índice ── */
+.btn-index {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--button-border);
+    background: var(--button-bg);
+    color: var(--button-text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 0.78rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.4;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+    z-index: 5;
+    padding: 0;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-index:hover {
+    opacity: 0.95;
+    transform: scale(1.12);
+}
+
+/* ── Botón de búsqueda ── */
+.search-btn {
+    width: 64px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    transition: transform 0.2s ease;
+}
+
+.search-btn:hover {
+    transform: translateY(-1px) scale(1.04);
+}
+
+/* ── Botón de índice ── */
+.index-btn {
+    width: 64px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    transition: transform 0.2s ease;
+}
+
+.index-btn:hover {
+    transform: translateY(-1px) scale(1.04);
+}
+
+/* ── Overlay de búsqueda ── */
+.search-overlay {
+    position: fixed;
+    top: 16px;
+    right: 92px;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.search-overlay.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: var(--button-bg);
+    border: 1px solid var(--button-border);
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+    overflow: hidden;
+    width: 280px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 14px;
+    font-family: Arial, sans-serif;
+    font-size: 0.82rem;
+    color: var(--page-text);
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--header-text);
+    opacity: 0.7;
+}
+
+.search-clear {
+    background: none;
+    border: none;
+    color: var(--header-text);
+    font-size: 1.1rem;
+    padding: 0 12px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.search-clear:hover {
+    color: var(--chord);
+}
+
+.search-results {
+    background: var(--button-bg);
+    border: 1px solid var(--button-border);
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+    width: 280px;
+    max-height: 340px;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+}
+
+.search-results:empty {
+    display: none;
+}
+
+.search-result-item {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--header-line);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: var(--header-line);
+}
+
+.search-result-title {
+    font-weight: 700;
+    color: var(--chord);
+    margin-bottom: 2px;
+    font-size: 0.75rem;
+}
+
+.search-result-snippet {
+    color: var(--header-text);
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+.search-result-page {
+    font-size: 0.68rem;
+    color: var(--header-text);
+    margin-top: 2px;
+    opacity: 0.7;
+}
+
+.search-thinking {
+    padding: 14px;
+    text-align: center;
+    color: var(--header-text);
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE — Móvil y tablet
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Móvil VERTICAL: una sola página ── */
+/* Modo una sola pagina (movil): aplica en CUALQUIER orientacion, para que
+   al girar a horizontal NO aparezca la pagina en blanco. */
+body.single-page .book {
+    transform-origin: top center;
+}
+body.single-page .container {
+    align-items: flex-start;
+    overflow: hidden;
+    padding-top: max(8px, env(safe-area-inset-top));
+}
+
+@media (max-width: 820px) and (orientation: portrait) {
+    :root {
+        --book-width: 430px;
+        --book-height: 650px;
+        --page-pad-y: 24px;
+        --page-pad-x: 22px;
+    }
+
+    body.single-page .book {
+        transform-origin: top center;
+    }
+
+    body.single-page .container {
+        align-items: flex-start;
+        overflow: hidden;
+        padding-top: max(8px, env(safe-area-inset-top));
+    }
+
+    /* Botones de navegación: más abajo y visibles */
+    .btn-nav {
+        bottom: max(4px, env(safe-area-inset-bottom));
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+        opacity: 0.10;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+    .btn-nav:active { opacity: 0.30; }
+    #prevBtn { left: max(10px, env(safe-area-inset-left)); }
+    #nextBtn { right: max(10px, env(safe-area-inset-right)); }
+
+    /* Barra de controles más compacta */
+    .top-controls {
+        top: max(8px, env(safe-area-inset-top));
+        right: max(8px, env(safe-area-inset-right));
+        gap: 7px;
+    }
+    .theme-toggle, .search-btn, .index-btn {
+        width: 48px;
+        height: 26px;
+    }
+
+    .header {
+        margin: 0 auto 10px;
+        padding-bottom: 5px;
+        font-size: 0.82rem;
+    }
+
+    /* El buscador se despliega a todo el ancho, debajo de la barra */
+    .search-overlay {
+        top: 10px;
+        right: 72px;
+        left: 10px;
+        align-items: stretch;
+    }
+    .search-box,
+    .search-results {
+        width: 100%;
+    }
+}
+
+/* ── Móvil HORIZONTAL: libro abierto centrado ── */
+@media (max-height: 600px) and (orientation: landscape) {
+    .btn-nav {
+        bottom: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        opacity: 0.10;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+    .btn-nav:active { opacity: 0.30; }
+    #prevBtn { left: 12px; }
+    #nextBtn { right: 12px; }
+
+    .top-controls {
+        top: 8px;
+        right: 10px;
+        gap: 6px;
+    }
+    .theme-toggle, .search-btn, .index-btn {
+        width: 52px;
+        height: 25px;
+        font-size: 0.85rem;
+    }
+    .search-overlay {
+        top: 8px;
+        right: 70px;
+    }
+    .search-box,
+    .search-results {
+        width: 220px;
+    }
+}

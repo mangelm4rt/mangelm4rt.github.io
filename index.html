@@ -1,0 +1,2079 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mayo ✨</title>
+    <link rel="stylesheet" href="styles.css?v=11">
+</head>
+<body>
+    <div class="top-controls" id="topControls">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" title="Menú">☰</button>
+        <div class="menu-items" id="menuItems">
+            <button class="search-btn" id="searchBtn" type="button" aria-label="Buscar canto" title="Buscar canto">🔎</button>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar modo de lectura" title="Cambiar modo de lectura">
+                <span class="theme-toggle-track">
+                    <span class="theme-toggle-thumb">
+                        <span class="theme-emoji light">✨</span>
+                        <span class="theme-emoji dark">🌚</span>
+                    </span>
+                </span>
+            </button>
+            <button class="index-btn" id="indexBtn" type="button" aria-label="Ir al índice" title="Ir al índice">📑</button>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <input class="search-input" id="searchInput" type="text" placeholder="Buscar letras o títulos..." autocomplete="off" spellcheck="false">
+            <button class="search-clear" id="searchClear" type="button" aria-label="Cerrar búsqueda">×</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="container">
+        <div class="book" id="book">
+            <div class="paper" id="pCoverFront">
+                <div class="front cover-page">
+                    <img class="cover-title" src="assets/titulopasta.png" alt="">
+                </div>
+                <div class="back cover-page"></div>
+            </div>
+
+            <div class="paper" id="m1">
+                <div class="front image-page">
+                    <img class="page-image" src="assets/portada.png" alt="Portada Cantoral Mayo">
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m2">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title">ÍNDICE</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m3">
+                <div class="front index-page">
+                    <div class="header">Índice</div>
+                    <div class="index-content">
+                        <div class="index-section-label">Entrada — Tiempo Ordinario</div>
+                        <a class="index-entry" data-song-target="1"><span class="index-name">Abundantes riquezas</span><span class="index-dots"></span><span class="index-num">1</span></a>
+                        <a class="index-entry" data-song-target="2"><span class="index-name">Alegría de vivir</span><span class="index-dots"></span><span class="index-num">2</span></a>
+                        <a class="index-entry" data-song-target="3"><span class="index-name">Alrededor de tu mesa</span><span class="index-dots"></span><span class="index-num">3</span></a>
+                        <a class="index-entry" data-song-target="4"><span class="index-name">Cantando llegamos</span><span class="index-dots"></span><span class="index-num">4</span></a>
+                        <a class="index-entry" data-song-target="5"><span class="index-name">Día de fiesta</span><span class="index-dots"></span><span class="index-num">5</span></a>
+                        <a class="index-entry" data-song-target="6"><span class="index-name">Dios nos convoca</span><span class="index-dots"></span><span class="index-num">6</span></a>
+                        <a class="index-entry" data-song-target="7"><span class="index-name">El Señor nos llama (D)</span><span class="index-dots"></span><span class="index-num">7</span></a>
+                        <a class="index-entry" data-song-target="8"><span class="index-name">El Señor nos llama (C)</span><span class="index-dots"></span><span class="index-num">8</span></a>
+                        <a class="index-entry" data-song-target="9"><span class="index-name">En la fiesta del domingo</span><span class="index-dots"></span><span class="index-num">9</span></a>
+                        <a class="index-entry" data-song-target="10"><span class="index-name">Juntos cantando la alegría</span><span class="index-dots"></span><span class="index-num">10</span></a>
+                        <a class="index-entry" data-song-target="11"><span class="index-name">Juntos marchamos a ti</span><span class="index-dots"></span><span class="index-num">11</span></a>
+                        <a class="index-entry" data-song-target="12"><span class="index-name">Padre que seamos uno</span><span class="index-dots"></span><span class="index-num">12</span></a>
+                        <a class="index-entry" data-song-target="13"><span class="index-name">Pueblo de reyes</span><span class="index-dots"></span><span class="index-num">13</span></a>
+                        <a class="index-entry" data-song-target="14"><span class="index-name">Reunidos en el nombre del Señor</span><span class="index-dots"></span><span class="index-num">14</span></a>
+                        <a class="index-entry" data-song-target="15"><span class="index-name">Somos un pueblo</span><span class="index-dots"></span><span class="index-num">15</span></a>
+                        <a class="index-entry" data-song-target="16"><span class="index-name">Todos juntos vamos</span><span class="index-dots"></span><span class="index-num">16</span></a>
+                        <a class="index-entry" data-song-target="17"><span class="index-name">Un solo Señor</span><span class="index-dots"></span><span class="index-num">17</span></a>
+                        <a class="index-entry" data-song-target="18"><span class="index-name">Vamos cantando al Señor</span><span class="index-dots"></span><span class="index-num">18</span></a>
+                        <a class="index-entry" data-song-target="19"><span class="index-name">Vayamos jubilosos</span><span class="index-dots"></span><span class="index-num">19</span></a>
+                        <a class="index-entry" data-song-target="20"><span class="index-name">Vayamos unidos</span><span class="index-dots"></span><span class="index-num">20</span></a>
+                        <a class="index-entry" data-song-target="21"><span class="index-name">Venid a la casa del Padre</span><span class="index-dots"></span><span class="index-num">21</span></a>
+                        <a class="index-entry" data-song-target="22"><span class="index-name">Venimos hoy a tu altar</span><span class="index-dots"></span><span class="index-num">22</span></a>
+                        <a class="index-entry" data-song-target="23"><span class="index-name">Vienen con alegría</span><span class="index-dots"></span><span class="index-num">23</span></a>
+                        <a class="index-entry" data-song-target="24"><span class="index-name">¡Qué alegría cuando me dijeron!</span><span class="index-dots"></span><span class="index-num">24</span></a>
+                        <div class="index-section-label">Entrada — Adviento</div>
+                        <a class="index-entry" data-song-target="25"><span class="index-name">El Rey vendrá al amanecer</span><span class="index-dots"></span><span class="index-num">25</span></a>
+                        <a class="index-entry" data-song-target="26"><span class="index-name">Llegará la libertad</span><span class="index-dots"></span><span class="index-num">26</span></a>
+                        <a class="index-entry" data-song-target="27"><span class="index-name">Señor Jesús, ven pronto</span><span class="index-dots"></span><span class="index-num">27</span></a>
+                        <a class="index-entry" data-song-target="28"><span class="index-name">Un pueblo que camina</span><span class="index-dots"></span><span class="index-num">28</span></a>
+                        <a class="index-entry" data-song-target="29"><span class="index-name">Ven, Señor</span><span class="index-dots"></span><span class="index-num">29</span></a>
+                        <a class="index-entry" data-song-target="30"><span class="index-name">Ven, Señor Jesús</span><span class="index-dots"></span><span class="index-num">30</span></a>
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m4">
+                <div class="front index-page">
+                    <div class="header">Índice</div>
+                    <div class="index-content">
+                        <div class="index-section-label">Entrada — Navidad</div>
+                        <a class="index-entry" data-song-target="31"><span class="index-name">Adeste fideles</span><span class="index-dots"></span><span class="index-num">31</span></a>
+                        <a class="index-entry" data-song-target="32"><span class="index-name">Gloria in excelsis deo</span><span class="index-dots"></span><span class="index-num">32</span></a>
+                        <a class="index-entry" data-song-target="33"><span class="index-name">Pastores con alegría</span><span class="index-dots"></span><span class="index-num">33</span></a>
+                        <a class="index-entry" data-song-target="34"><span class="index-name">Familia de Nazaret</span><span class="index-dots"></span><span class="index-num">34</span></a>
+                        <a class="index-entry" data-song-target="35"><span class="index-name">Reyes son</span><span class="index-dots"></span><span class="index-num">35</span></a>
+                        <div class="index-section-label">Entrada — Cuaresma</div>
+                        <a class="index-entry" data-song-target="36"><span class="index-name">El Señor es compasivo</span><span class="index-dots"></span><span class="index-num">36</span></a>
+                        <a class="index-entry" data-song-target="37"><span class="index-name">Hacia ti morada Santa</span><span class="index-dots"></span><span class="index-num">37</span></a>
+                        <a class="index-entry" data-song-target="38"><span class="index-name">Nos has llamado al desierto (Em)</span><span class="index-dots"></span><span class="index-num">38</span></a>
+                        <a class="index-entry" data-song-target="39"><span class="index-name">Nos has llamado al desierto (Dm)</span><span class="index-dots"></span><span class="index-num">39</span></a>
+                        <a class="index-entry" data-song-target="40"><span class="index-name">Hosanna al Hijo de David</span><span class="index-dots"></span><span class="index-num">40</span></a>
+                        <div class="index-section-label">Entrada — Pascua</div>
+                        <a class="index-entry" data-song-target="41"><span class="index-name">Nueva Creación</span><span class="index-dots"></span><span class="index-num">41</span></a>
+                        <a class="index-entry" data-song-target="42"><span class="index-name">Vamos con gozo (E)</span><span class="index-dots"></span><span class="index-num">42</span></a>
+                        <a class="index-entry" data-song-target="43"><span class="index-name">Vamos con gozo (D)</span><span class="index-dots"></span><span class="index-num">43</span></a>
+                        <a class="index-entry" data-song-target="44"><span class="index-name">Todos unidos</span><span class="index-dots"></span><span class="index-num">44</span></a>
+                        <div class="index-section-label">Kirie Eleison</div>
+                        <a class="index-entry" data-song-target="45"><span class="index-name">A, B, C, D</span><span class="index-dots"></span><span class="index-num">45</span></a>
+                        <a class="index-entry" data-song-target="49"><span class="index-name">E, F, G, H</span><span class="index-dots"></span><span class="index-num">46</span></a>
+                        <a class="index-entry" data-song-target="53"><span class="index-name">I, J, K, L</span><span class="index-dots"></span><span class="index-num">47</span></a>
+                        <a class="index-entry" data-song-target="57"><span class="index-name">M, N, Ñ, O</span><span class="index-dots"></span><span class="index-num">48</span></a>
+                        <div class="index-section-label">Gloria</div>
+                        <a class="index-entry" data-song-target="61"><span class="index-name">A</span><span class="index-dots"></span><span class="index-num">49</span></a>
+                        <a class="index-entry" data-song-target="62"><span class="index-name">B</span><span class="index-dots"></span><span class="index-num">50</span></a>
+                        <a class="index-entry" data-song-target="63"><span class="index-name">C</span><span class="index-dots"></span><span class="index-num">51</span></a>
+                        <a class="index-entry" data-song-target="64"><span class="index-name">D</span><span class="index-dots"></span><span class="index-num">52</span></a>
+                        <a class="index-entry" data-song-target="65"><span class="index-name">E</span><span class="index-dots"></span><span class="index-num">53</span></a>
+                        <a class="index-entry" data-song-target="66"><span class="index-name">F</span><span class="index-dots"></span><span class="index-num">54</span></a>
+                        <div class="index-section-label">Aleluya</div>
+                        <a class="index-entry" data-song-target="67"><span class="index-name">A, B, C, D</span><span class="index-dots"></span><span class="index-num">55</span></a>
+                        <a class="index-entry" data-song-target="71"><span class="index-name">E, F, G, H</span><span class="index-dots"></span><span class="index-num">56</span></a>
+                        <a class="index-entry" data-song-target="75"><span class="index-name">I, J, K, L</span><span class="index-dots"></span><span class="index-num">57</span></a>
+                        <a class="index-entry" data-song-target="79"><span class="index-name">M, N, Ñ, O</span><span class="index-dots"></span><span class="index-num">58</span></a>
+                        <a class="index-entry" data-song-target="83"><span class="index-name">P, Q, R</span><span class="index-dots"></span><span class="index-num">59</span></a>
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m5">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title decor-section-title-long" data-section="ordinario">TIEMPO ORDINARIO</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m6">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-sheet">
+                        <div class="song-title" data-song="1">1. ABUNDANTES RIQUEZAS.</div>
+
+                        <div class="song-line">
+                            <span class="chord" style="left: 0%;">E</span>
+                            <div class="lyric">HEMOS VENIDO, SEÑOR</div>
+                        </div>
+                        <div class="song-line">
+                            <span class="chord" style="left: 56%;">B7</span>
+                            <div class="lyric">A CELEBRAR EN EL GOZO</div>
+                        </div>
+                        <div class="song-line">
+                            <span class="chord" style="left: 34%;">A</span>
+                            <div class="lyric">LAS ABUNDANTES RIQUEZAS</div>
+                        </div>
+                        <div class="song-line">
+                            <span class="chord" style="left: 31%;">B7</span>
+                            <span class="chord" style="left: 48%;">E</span>
+                            <div class="lyric">DE TU GRACIA.</div>
+                        </div>
+
+                        <div class="song-space"></div>
+
+                        <div class="song-line compact">
+                            <span class="chord" style="left: 12%;">C#m</span>
+                            <span class="chord" style="left: 49%;">A</span>
+                            <div class="lyric">En Jesús tú nos has dado</div>
+                        </div>
+                        <div class="song-line compact">
+                            <span class="chord" style="left: 31%;">F#m</span>
+                            <span class="chord" style="left: 52%;">B7</span>
+                            <span class="chord" style="left: 66%;">E</span>
+                            <div class="lyric">las maravillas de tu amor</div>
+                        </div>
+                        <div class="song-line compact">
+                            <span class="chord" style="left: 10%;">A</span>
+                            <span class="chord" style="left: 44%;">F#m</span>
+                            <span class="chord" style="left: 73%;">B7</span>
+                            <div class="lyric">y así lo proclamamos maestro,</div>
+                        </div>
+                        <div class="song-line compact">
+                            <span class="chord" style="left: 9%;">A</span>
+                            <span class="chord" style="left: 43%;">B7</span>
+                            <span class="chord" style="left: 58%;">E</span>
+                            <div class="lyric">camino, verdad y vida.</div>
+                        </div>
+
+                        <div class="song-space"></div>
+
+                        <div class="song-line no-chord"><div class="lyric">En Jesús tú nos has dado</div></div>
+                        <div class="song-line no-chord"><div class="lyric">tu Espíritu y tu palabra,</div></div>
+                        <div class="song-line no-chord"><div class="lyric">tú nos has dado la Iglesia</div></div>
+                        <div class="song-line no-chord"><div class="lyric">y a María como Madre.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">1</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m7">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-two">
+                        <div class="song-title" data-song="2">2. ALEGRÍA DE VIVIR.</div>
+
+                        <div class="pair"><div class="chord-row">D                 G        D</div><div class="lyric-row">CANTANDO LA ALEGRÍA DE VIVIR</div></div>
+                        <div class="pair"><div class="chord-row">      Bm                  A7</div><div class="lyric-row">LLEGUEMOS A LA CASA DEL SEÑOR;</div></div>
+                        <div class="pair"><div class="chord-row">   G              A7</div><div class="lyric-row">MARCHANDO TODOS JUNTOS</div></div>
+                        <div class="pair"><div class="chord-row">         D    Bm     Em</div><div class="lyric-row">COMO HERMANOS, ANDEMOS LOS</div></div>
+                        <div class="pair"><div class="chord-row">    A7          D</div><div class="lyric-row">CAMINOS HACIA A DIOS.</div></div>
+
+                        <div class="song-space"></div>
+
+                        <div class="pair"><div class="chord-row">E               Bm          E</div><div class="lyric-row">Venid, entremos todos dando gracias;</div></div>
+                        <div class="pair"><div class="chord-row">                            A7</div><div class="lyric-row">venid, cantemos todos al Señor,</div></div>
+                        <div class="pair"><div class="chord-row">    G                      D     Bm</div><div class="lyric-row">gritemos a la roca que nos salva,</div></div>
+                        <div class="pair"><div class="chord-row">     Em          A7              D</div><div class="lyric-row">cantemos la alabanza a nuestro Dios.</div></div>
+
+                        <div class="extra-lyrics">
+                            <p>La paz del Señor sea con vosotros<br>
+                            la paz que llena el corazón,<br>
+                            la paz de estar unidos como hermanos,<br>
+                            la paz que nos promete nuestro Dios.</p>
+
+                            <p>Entremos por la puerta dando gracias,<br>
+                            pidamos al Señor también perdón,<br>
+                            perdón por nuestra falta a los hermanos,<br>
+                            perdón por nuestro pobre corazón.</p>
+
+                            <p>Sabed que Dios nos hizo y somos suyos,<br>
+                            sabed que el Señor es nuestro Dios,<br>
+                            nosotros somos pueblo y las ovejas,<br>
+                            ovejas del rebaño del Señor.</p>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">2</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m8">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="lyrics">
+                        <div class="song-title" data-song="3">3. ALREDEDOR DE TU MESA.</div>
+
+                        <p>ALREDEDOR DE TU MESA,</p>
+                        <p>VENIMOS A RECORDAR (2v).</p>
+                        <p>QUE TU PALABRA ES CAMINO.</p>
+                        <p>TU CUERPO FRATERNIDAD,</p>
+                        <p>QUE TU PALABRA ES CAMINO,</p>
+                        <p>TU CUERPO FRATERNIDAD.</p>
+                        <p>Hemos venido a tu mesa</p>
+                        <p>a renovar el misterio de tu amor,</p>
+                        <p>con nuestras manos manchadas,</p>
+                        <p>arrepentidos buscamos tu perdón.</p>
+
+                        <p>Juntos y a veces sin vernos,<br>
+                        celebramos tu presencia sin sentir<br>
+                        que se interrumpe el camino,<br>
+                        sino vamos como hermanos hacia ti.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">3</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m9">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="4">4. CANTANDO LLEGAMOS.</div>
+
+                        <div class="pair"><div class="chord-row">D          G</div><div class="lyric-row">CANTANDO LLEGAMOS</div></div>
+                        <div class="pair"><div class="chord-row">   A7   D</div><div class="lyric-row">ANTE EL SEÑOR,</div></div>
+                        <div class="pair"><div class="chord-row">G             (A7) A7 (D)</div><div class="lyric-row">CANTANDO CON ALEGRÍA (2v).</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">                    A7</div><div class="lyric-row">Te cantamos oh Hijo de Dios,</div></div>
+                            <div class="pair"><div class="chord-row">                         D</div><div class="lyric-row">te alabamos palabra del Padre.</div></div>
+                            <div class="pair"><div class="chord-row">                    A7</div><div class="lyric-row">Te cantamos antorcha radiante,</div></div>
+                            <div class="pair"><div class="chord-row">                         D</div><div class="lyric-row">te alabamos estrella del día.</div></div>
+                        </div>
+
+                        <p>Todos juntos unidos en ti,<br>
+                        comeremos el pan de la mesa.<br>
+                        Todos juntos unidos en ti,<br>
+                        beberemos el cáliz de tu Sangre.</p>
+
+                        <div class="pair"><div class="chord-row">                    A7</div><div class="lyric-row">Esta tierra que tú has forjado,</div></div>
+                        <div class="pair"><div class="chord-row">                         D</div><div class="lyric-row">esta tierra hoy canta tu gloria.</div></div>
+                        <div class="pair"><div class="chord-row">                    A7</div><div class="lyric-row">Maravillas hiciste en nosotros,</div></div>
+                        <div class="pair"><div class="chord-row">                         D</div><div class="lyric-row">nos creaste iguales a ti.</div></div>
+
+                        <p>Nos has dado las obras de tus manos<br>
+                        porque grande es tu misericordia.<br>
+                        Te cantamos, tú has sido ensalzado<br>
+                        y tu gloria es firme por los siglos.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">4</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m10">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="5">5. DÍA DE FIESTA.</div>
+
+                        <div class="pair"><div class="chord-row">F      C  Dm Bb F     C</div><div class="lyric-row">DÍA DE FIESTA EN TU ALTAR,</div></div>
+                        <div class="pair"><div class="chord-row">F            Bb   C     F</div><div class="lyric-row">SOMOS INVITADOS A TU MESA,</div></div>
+                        <div class="pair"><div class="chord-row">       C   Dm Bb F   C</div><div class="lyric-row">NOS ALIMENTAS CON TU PAN,</div></div>
+                        <div class="pair"><div class="chord-row">F            Bb   C          F</div><div class="lyric-row">Y CON TU PALABRA DE HERMANDAD.</div></div>
+
+                        <div class="pair"><div class="chord-row">Dm                    A7</div><div class="lyric-row">Hoy Señor, todos los hermanos,</div></div>
+                        <div class="pair"><div class="chord-row">              Dm A7 Dm</div><div class="lyric-row">vienen a tu lado;</div></div>
+                        <div class="pair"><div class="chord-row">Gm     C    A7        Dm</div><div class="lyric-row">y en oración piden perdón,</div></div>
+                        <div class="pair"><div class="chord-row">Bb           Dm A7 Dm   C7</div><div class="lyric-row">cantan la Resurrección.</div></div>
+
+                        <div class="pair"><div class="chord-row">Dm                    A7</div><div class="lyric-row">El Señor celebró la Pascua,</div></div>
+                        <div class="pair"><div class="chord-row">              Dm A7 Dm</div><div class="lyric-row">celebró la Cena;</div></div>
+                        <div class="pair"><div class="chord-row">Gm     C    A7        Dm</div><div class="lyric-row">Cena Pascual, Cáliz y Pan,</div></div>
+                        <div class="pair"><div class="chord-row">Bb           Dm A7 Dm   C7</div><div class="lyric-row">signos de fraternidad.</div></div>
+
+                        <div class="pair"><div class="chord-row">Dm                    A7</div><div class="lyric-row">Oh Señor, quiero yo ser digno,</div></div>
+                        <div class="pair"><div class="chord-row">              Dm A7 Dm</div><div class="lyric-row">ser tu invitado;</div></div>
+                        <div class="pair"><div class="chord-row">Gm     C    A7        Dm</div><div class="lyric-row">dame tu Pan, dame tu amor,</div></div>
+                        <div class="pair"><div class="chord-row">Bb           Dm A7 Dm   C7</div><div class="lyric-row">dame un nuevo corazón.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">5</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m11">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="6">6. DIOS NOS CONVOCA.</div>
+
+                        <div class="pair"><div class="chord-row">C              Am</div><div class="lyric-row">DIOS NOS CONVOCA,</div></div>
+                        <div class="pair"><div class="chord-row">    Dm       G7        C</div><div class="lyric-row">VENID Y ESCUCHEMOS SU VOZ,</div></div>
+                        <div class="pair"><div class="chord-row">                         G       Am</div><div class="lyric-row">LA MESA HA PREPARADO SU PAN</div></div>
+                        <div class="pair"><div class="chord-row">              Em  Am        Em</div><div class="lyric-row">ES SALVACIÓN, GRACIAS SEÑOR,</div></div>
+                        <div class="pair"><div class="chord-row">              C    G C</div><div class="lyric-row">POR SER TUS INVITADOS.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">   C                      G C</div><div class="lyric-row">Venid celebrad la palabra,</div></div>
+                            <div class="pair"><div class="chord-row">                         Em Am</div><div class="lyric-row">venid acoged la verdad y en</div></div>
+                            <div class="pair"><div class="chord-row">       Em      F          G7 C</div><div class="lyric-row">hermandad cantad la nueva alianza.</div></div>
+                        </div>
+
+                        <p>Venid celebrad la esperanza,<br>
+                        venid a la cena Pascual y en<br>
+                        hermandad cantad la nueva alianza.</p>
+
+                        <p>Venid celebrad la victoria,<br>
+                        venid renovad la amistad, y en<br>
+                        hermandad cantad la nueva alianza.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">6</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m12">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="7">7. EL SEÑOR NOS LLAMA (D).</div>
+
+                        <div class="pair"><div class="chord-row">      D      A7        D</div><div class="lyric-row">EL SEÑOR NOS LLAMA Y NOS REÚNE,</div></div>
+                        <div class="pair"><div class="chord-row">       F#m    G       A7 D</div><div class="lyric-row">SOMOS SU PUEBLO SIGNO DE UNIDAD,</div></div>
+                        <div class="pair"><div class="chord-row">       G     A7     F#m    G</div><div class="lyric-row">ÉL ESTÁ EN MEDIO DE NOSOTROS</div></div>
+                        <div class="pair"><div class="chord-row">       D      A7        G  D</div><div class="lyric-row">SIRVE A LA MESA, NOS REPARTE EL PAN.</div></div>
+
+                        <div class="pair"><div class="chord-row">G            Em</div><div class="lyric-row">Por todos los caminos</div></div>
+                        <div class="pair"><div class="chord-row">A7          F#m</div><div class="lyric-row">nos sales al encuentro,</div></div>
+                        <div class="pair"><div class="chord-row">Em          A7</div><div class="lyric-row">por todos hemos visto</div></div>
+                        <div class="pair"><div class="chord-row">D     F     D</div><div class="lyric-row">señales de tu amor.</div></div>
+                        <div class="pair"><div class="chord-row">G         C</div><div class="lyric-row">Tu pueblo se reúne,</div></div>
+                        <div class="pair"><div class="chord-row">F</div><div class="lyric-row">Señor a bendecirte,</div></div>
+                        <div class="pair"><div class="chord-row">Gm</div><div class="lyric-row">a celebrar con gozo</div></div>
+                        <div class="pair"><div class="chord-row">A7</div><div class="lyric-row">tu pascua salvador.</div></div>
+
+                        <p>Convocas a tus fieles,<br>
+                        nacidos de las aguas,<br>
+                        a festejar unidos<br>
+                        la nueva creación.<br>
+                        La sala del banquete<br>
+                        se llena de invitados;<br>
+                        estamos reunidos<br>
+                        y en medio está el Señor.</p>
+
+                        <p>Revélanos al Padre,<br>
+                        oh Cristo, nuestra fiesta,<br>
+                        aumenta la esperanza<br>
+                        de nuestro caminar.<br>
+                        Tu Espíritu divino<br>
+                        nos dé la fortaleza,<br>
+                        los bienes que esperamos,<br>
+                        nos haga pregustar.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">7</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m13">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="8">8. EL SEÑOR NOS LLAMA (C).</div>
+
+                        <div class="pair"><div class="chord-row">      C      G7        C</div><div class="lyric-row">EL SEÑOR NOS LLAMA Y NOS REÚNE,</div></div>
+                        <div class="pair"><div class="chord-row">       Em    F        G7 C</div><div class="lyric-row">SOMOS SU PUEBLO SIGNO DE UNIDAD,</div></div>
+                        <div class="pair"><div class="chord-row">       F     G7     Em    F</div><div class="lyric-row">ÉL ESTÁ EN MEDIO DE NOSOTROS</div></div>
+                        <div class="pair"><div class="chord-row">       C      G7       F  C</div><div class="lyric-row">SIRVE A LA MESA, NOS REPARTE EL PAN.</div></div>
+
+                        <div class="pair"><div class="chord-row">F            Dm</div><div class="lyric-row">Por todos los caminos</div></div>
+                        <div class="pair"><div class="chord-row">G7          Em</div><div class="lyric-row">nos sales al encuentro,</div></div>
+                        <div class="pair"><div class="chord-row">Dm          G7</div><div class="lyric-row">por todos hemos visto</div></div>
+                        <div class="pair"><div class="chord-row">C     F     C</div><div class="lyric-row">señales de tu amor.</div></div>
+                        <div class="pair"><div class="chord-row">Fm7       Bb</div><div class="lyric-row">Tu pueblo se reúne,</div></div>
+                        <div class="pair"><div class="chord-row">Eb</div><div class="lyric-row">Señor a bendecirte,</div></div>
+                        <div class="pair"><div class="chord-row">Fm</div><div class="lyric-row">a celebrar con gozo</div></div>
+                        <div class="pair"><div class="chord-row">G7</div><div class="lyric-row">tu pascua salvador.</div></div>
+
+                        <p>Convocas a tus fieles,<br>
+                        nacidos de las aguas,<br>
+                        a festejar unidos<br>
+                        la nueva creación.<br>
+                        La sala del banquete<br>
+                        se llena de invitados;<br>
+                        estamos reunidos<br>
+                        y en medio está el Señor.</p>
+
+                        <p>Revélanos al Padre,<br>
+                        oh Cristo, nuestra fiesta,<br>
+                        aumenta la esperanza<br>
+                        de nuestro caminar.<br>
+                        Tu Espíritu divino<br>
+                        nos dé la fortaleza,<br>
+                        los bienes que esperamos,<br>
+                        nos haga pregustar.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">8</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m14">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="9">9. EN LA FIESTA DEL DOMINGO.</div>
+
+                        <div class="pair"><div class="chord-row">F             Dm    C</div><div class="lyric-row">EN LA FIESTA DEL DOMINGO</div></div>
+                        <div class="pair"><div class="chord-row">       F      Bb C</div><div class="lyric-row">EL SEÑOR NOS ESPERA,</div></div>
+                        <div class="pair"><div class="chord-row">     Am   C7       F</div><div class="lyric-row">REUNIDOS EN SU MESA</div></div>
+                        <div class="pair"><div class="chord-row">Bb   C7        F</div><div class="lyric-row">ESCUCHAMOS SU VOZ.</div></div>
+                        <div class="pair"><div class="chord-row">              Dm C</div><div class="lyric-row">SU PALABRA ES ALIMENTO,</div></div>
+                        <div class="pair"><div class="chord-row">       F      Bb C</div><div class="lyric-row">ES LA BUENA NOTICIA</div></div>
+                        <div class="pair"><div class="chord-row">     Am    C7   F</div><div class="lyric-row">COMO PRENDA DE VIDA,</div></div>
+                        <div class="pair"><div class="chord-row">Bb    C7        F</div><div class="lyric-row">ÉL SE DA EN COMUNIÓN.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">       A</div><div class="lyric-row">Un altar, un manjar,</div></div>
+                            <div class="pair"><div class="chord-row">       Dm</div><div class="lyric-row">una Iglesia, una Iglesia;</div></div>
+                            <div class="pair"><div class="chord-row">C          F       Bb C</div><div class="lyric-row">una ofrenda, sacrificio Pascual,</div></div>
+                            <div class="pair"><div class="chord-row">       Bb     F    C7    F</div><div class="lyric-row">con nosotros está, revestido de pan.</div></div>
+                        </div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">       A</div><div class="lyric-row">El Señor, buen Pastor,</div></div>
+                            <div class="pair"><div class="chord-row">       Dm</div><div class="lyric-row">Él nos guía, Él nos guía;</div></div>
+                            <div class="pair"><div class="chord-row">C          F          Bb C</div><div class="lyric-row">nos perdona, nos orienta su voz,</div></div>
+                            <div class="pair"><div class="chord-row">       Bb     F        C7</div><div class="lyric-row">el Señor, buen Pastor, Él se da en</div></div>
+                            <div class="pair"><div class="chord-row">       F</div><div class="lyric-row">comunión.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">9</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m15">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="10">10. JUNTOS CANTANDO LA ALEGRÍA.</div>
+
+                        <div class="pair"><div class="chord-row">D              A7           Bm</div><div class="lyric-row">JUNTOS CANTANDO LA ALEGRÍA,</div></div>
+                        <div class="pair"><div class="chord-row">   G                       A7</div><div class="lyric-row">DE VERNOS UNIDOS EN LA FE Y EL AMOR,</div></div>
+                        <div class="pair"><div class="chord-row">D          A7              Bm</div><div class="lyric-row">JUNTOS SINTIENDO EN NUESTRAS VIDAS</div></div>
+                        <div class="pair"><div class="chord-row">        G      A7       D</div><div class="lyric-row">LA ALEGRE PRESENCIA DEL SEÑOR.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">D                       Bm</div><div class="lyric-row">Somos la Iglesia peregrina que Él fundó,</div></div>
+                            <div class="pair"><div class="chord-row">G                         A7</div><div class="lyric-row">somos un pueblo que camina sin cesar.</div></div>
+                            <div class="pair"><div class="chord-row">D                       Bm</div><div class="lyric-row">Entre cansancios y esperanzas hacia a Dios</div></div>
+                            <div class="pair"><div class="chord-row">          G       A7        D</div><div class="lyric-row">nuestro amigo Jesús nos llevará.</div></div>
+                        </div>
+
+                        <p>Hay una fe que nos alumbra con su luz,<br>
+                        una esperanza que empapó nuestro esperar,<br>
+                        aunque la noche nos envuelva en su inquietud,<br>
+                        nuestro amigo Jesús nos guiará.</p>
+
+                        <p>Es el Señor, nos acompaña al caminar,<br>
+                        con su ternura a nuestro lado siempre va.<br>
+                        Si los peligros nos acechan por doquier,<br>
+                        nuestro amigo Jesús nos salvará.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">10</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m16">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="11">11. JUNTOS MARCHAMOS A TI.</div>
+                        <div class="note">Para matrimonio.</div>
+
+                        <div class="pair"><div class="chord-row">G          C          G</div><div class="lyric-row">JUNTOS MARCHAMOS A TI,</div></div>
+                        <div class="pair"><div class="chord-row">          D   D7       G</div><div class="lyric-row">HACIA TU ALTAR, HACIA EL AMOR.</div></div>
+                        <div class="pair"><div class="chord-row">          C          G</div><div class="lyric-row">TÚ MANTENDRÁS NUESTRA UNIÓN</div></div>
+                        <div class="pair"><div class="chord-row">       D7             G</div><div class="lyric-row">EN LA SALUD Y EN EL DOLOR.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">          Em       C        D7</div><div class="lyric-row">Tú que enseñaste a los hombres amar,</div></div>
+                            <div class="pair"><div class="chord-row">G         Em       C       G</div><div class="lyric-row">ven con nosotros comparte el hogar.</div></div>
+                        </div>
+
+                        <p>Dios con nosotros en torno al altar,<br>
+                        Dios con nosotros en torno al hogar.</p>
+
+                        <p>Un mismo cuerpo, un mismo manjar,<br>
+                        una familia de amor y unidad.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">11</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m17">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="12">12. PADRE QUE SEAMOS UNO.</div>
+                        <div class="pair"><div class="chord-row">A            D      A</div><div class="lyric-row">PADRE QUE SEAMOS UNO</div></div>
+                        <div class="pair"><div class="chord-row">       D              E</div><div class="lyric-row">COMO TÚ Y EL HIJO SON UNO,</div></div>
+                        <div class="pair"><div class="chord-row">       D</div><div class="lyric-row">TOMADOS DE LA MANO</div></div>
+                        <div class="pair"><div class="chord-row">       A</div><div class="lyric-row">MARCHEMOS HACIA TI,</div></div>
+                        <div class="pair"><div class="chord-row">       F#m</div><div class="lyric-row">FORMANDO UNA IGLESIA</div></div>
+                        <div class="pair"><div class="chord-row">       E        A</div><div class="lyric-row">EN UNIDAD, EN UNIDAD.</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">A              E</div><div class="lyric-row">Cristo eres la cabeza, nosotros somos el</div></div>
+                            <div class="pair"><div class="chord-row">A              E</div><div class="lyric-row">cuerpo, la viña es nuestra Iglesia,</div></div>
+                            <div class="pair"><div class="chord-row">                 A   A7</div><div class="lyric-row">nosotros somos sarmientos.</div></div>
+                            <div class="pair"><div class="chord-row">                 D</div><div class="lyric-row">Y nos haces hijos tuyos buscando en ti</div></div>
+                            <div class="pair"><div class="chord-row">    A                  E</div><div class="lyric-row">felicidad, oh Jesús ven a nosotros</div></div>
+                            <div class="pair"><div class="chord-row">                         A</div><div class="lyric-row">haznos vivir en santidad.</div></div>
+                        </div>
+                        <p>Que se rompan barreras, que no haya<br>más divisiones, que sanen los rencores<br>y paz a los corazones.<br>Que vivamos alegres en un solo Señor,<br>en un solo bautismo<br>y en una fe en Jesucristo.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">12</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m18">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page ultra wide">
+                        <div class="song-title" data-song="13">13. PUEBLO DE REYES.</div>
+                        <div class="pair"><div class="chord-row">G          Bm</div><div class="lyric-row">PUEBLO DE REYES,</div></div>
+                        <div class="pair"><div class="chord-row">       C</div><div class="lyric-row">ASAMBLEA SANTA,</div></div>
+                        <div class="pair"><div class="chord-row">                G</div><div class="lyric-row">PUEBLO SACERDOTAL, PUEBLO</div></div>
+                        <div class="pair"><div class="chord-row">    C        D7          G</div><div class="lyric-row">DE DIOS, BENDICE A TU SEÑOR.</div></div>
+                        <div class="pair"><div class="chord-row">                       G7</div><div class="lyric-row">Te cantamos oh Hijo amado del</div></div>
+                        <div class="pair"><div class="chord-row">C            D7</div><div class="lyric-row">Padre, te alabamos eterna palabra</div></div>
+                        <div class="pair"><div class="chord-row">          Em</div><div class="lyric-row">salida de Dios.</div></div>
+                        <div class="pair"><div class="chord-row">G                       G7</div><div class="lyric-row">Te cantamos, oh Hijo de la Virgen</div></div>
+                        <div class="pair"><div class="chord-row">C            D7</div><div class="lyric-row">María, te alabamos oh Cristo nuestro</div></div>
+                        <div class="pair"><div class="chord-row">                   Em</div><div class="lyric-row">hermano, nuestro Salvador.</div></div>
+                        <div class="pair"><div class="chord-row">                       G7</div><div class="lyric-row">Te cantamos, a ti esplendor de la</div></div>
+                        <div class="pair"><div class="chord-row">C            D7</div><div class="lyric-row">gloria, te alabamos, Estrella radiante</div></div>
+                        <div class="pair"><div class="chord-row">                 Em</div><div class="lyric-row">que anuncias el día.</div></div>
+                        <div class="pair"><div class="chord-row">G                       G7</div><div class="lyric-row">Te cantamos oh Luz que iluminas</div></div>
+                        <div class="pair"><div class="chord-row">       C            D7</div><div class="lyric-row">nuestras sombras, te alabamos</div></div>
+                        <div class="pair"><div class="chord-row">                         Em</div><div class="lyric-row">Antorcha de la Nueva Jerusalén.</div></div>
+                        <div class="pair"><div class="chord-row">                       G7</div><div class="lyric-row">Te cantamos, Mesías que anunciaron</div></div>
+                        <div class="pair"><div class="chord-row">       C           D7</div><div class="lyric-row">los profetas, te alabamos, oh Hijo de</div></div>
+                        <div class="pair"><div class="chord-row">                         Em</div><div class="lyric-row">Abraham e hijo de David.</div></div>
+                        <div class="pair"><div class="chord-row">G                       G7</div><div class="lyric-row">Te cantamos, Mesías esperado por los</div></div>
+                        <div class="pair"><div class="chord-row">C            D7</div><div class="lyric-row">pobres, te alabamos, oh Cristo Nuestro</div></div>
+                        <div class="pair"><div class="chord-row">                         Em</div><div class="lyric-row">Rey, de humilde corazón.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">13</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m19">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="14">14. REUNIDOS EN EL NOMBRE DEL SEÑOR.</div>
+                        <div class="pair"><div class="chord-row">G (E)          C (A)         G (E)</div><div class="lyric-row">REUNIDOS EN EL NOMBRE DEL SEÑOR,</div></div>
+                        <div class="pair"><div class="chord-row">                              D7 (B7)</div><div class="lyric-row">QUE NOS HA CONGREGADO ANTE SU ALTAR,</div></div>
+                        <div class="pair"><div class="chord-row">      C (A)                 G (E)</div><div class="lyric-row">CELEBREMOS EL MISTERIO DE LA FE</div></div>
+                        <div class="pair"><div class="chord-row">          D7 (B7)          G (E)</div><div class="lyric-row">BAJO EL SIGNO DEL AMOR Y LA UNIDAD.</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">          G (E)     C (A)        G (E)</div><div class="lyric-row">Tú Señor das sentido a nuestra vida,</div></div>
+                            <div class="pair"><div class="chord-row">                              D7 (B7)</div><div class="lyric-row">tu presencia nos ayuda a caminar;</div></div>
+                            <div class="pair"><div class="chord-row">          G (E)   G7 (E7)       C (A)</div><div class="lyric-row">tu palabra es fuente de agua viva</div></div>
+                            <div class="pair"><div class="chord-row">                  D7 (B7)     G (E)</div><div class="lyric-row">que nosotros sedientos a tu mesa,</div></div>
+                            <div class="pair"><div class="chord-row">      C (A) D7 (B7) G (E)</div><div class="lyric-row">venimos a buscar.</div></div>
+                        </div>
+                        <p>Purifica tu gracia nuestras manos,<br>ilumina nuestra mente con tu luz;<br>que la fe se fortalezca en tu palabra<br>y tu cuerpo tomado en alimento,<br>nos traiga la salud.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">14</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m20">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="15">15. SOMOS UN PUEBLO.</div>
+                        <div class="pair"><div class="chord-row">A</div><div class="lyric-row">SOMOS UN PUEBLO QUE CAMINA,</div></div>
+                        <div class="pair"><div class="chord-row">                 D</div><div class="lyric-row">Y JUNTOS CAMINANDO</div></div>
+                        <div class="pair"><div class="chord-row">                 E</div><div class="lyric-row">PODREMOS ALCANZAR</div></div>
+                        <div class="pair"><div class="chord-row">D                         A</div><div class="lyric-row">OTRA CIUDAD QUE NO SE ACABA</div></div>
+                        <div class="pair"><div class="chord-row">                 E</div><div class="lyric-row">SIN PENAS NI TRISTEZAS;</div></div>
+                        <div class="pair"><div class="chord-row">      A</div><div class="lyric-row">CIUDAD DE ETERNIDAD.</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">A        E           A</div><div class="lyric-row">Somos un pueblo que camina,</div></div>
+                            <div class="pair"><div class="chord-row">       E              A</div><div class="lyric-row">que marcha por el mundo</div></div>
+                            <div class="pair"><div class="chord-row">       E              A</div><div class="lyric-row">buscando otra ciudad.</div></div>
+                            <div class="pair"><div class="chord-row">E     D             A</div><div class="lyric-row">Somos errantes peregrinos</div></div>
+                            <div class="pair"><div class="chord-row">      D              A</div><div class="lyric-row">en busca de un destino:</div></div>
+                            <div class="pair"><div class="chord-row">       E           A</div><div class="lyric-row">destino de unidad.</div></div>
+                        </div>
+                        <div class="pair"><div class="chord-row">D                       A</div><div class="lyric-row">Siempre seremos caminantes,</div></div>
+                        <div class="pair"><div class="chord-row">                  D                  E</div><div class="lyric-row">pues solo caminando podremos alcanzar</div></div>
+                        <div class="pair"><div class="chord-row">D                       A</div><div class="lyric-row">otra ciudad que no se acaba,</div></div>
+                        <div class="pair"><div class="chord-row">                  E</div><div class="lyric-row">sin penas ni tristezas:</div></div>
+                        <div class="pair"><div class="chord-row">                  A</div><div class="lyric-row">ciudad de eternidad.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">15</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m21">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="15-cont">15. SOMOS UN PUEBLO (CONT.).</div>
+                        <div class="pair"><div class="chord-row">A        E           A</div><div class="lyric-row">Sufren los hombres mis hermanos</div></div>
+                        <div class="pair"><div class="chord-row">       E              A</div><div class="lyric-row">buscando entre las piedras</div></div>
+                        <div class="pair"><div class="chord-row">       E              A</div><div class="lyric-row">la parte de su pan.</div></div>
+                        <div class="pair"><div class="chord-row">E       D              A</div><div class="lyric-row">Sufren los hombres oprimidos,</div></div>
+                        <div class="pair"><div class="chord-row">      D              A</div><div class="lyric-row">los hombres que no tienen</div></div>
+                        <div class="pair"><div class="chord-row">       E           A</div><div class="lyric-row">ni pan ni libertad.</div></div>
+                        <div class="pair"><div class="chord-row">D                       A</div><div class="lyric-row">Sufren los hombres mis hermanos:</div></div>
+                        <div class="pair"><div class="chord-row">                  D</div><div class="lyric-row">mas Tú vienes con ellos;</div></div>
+                        <div class="pair"><div class="chord-row">                  E</div><div class="lyric-row">en Ti alcanzarán</div></div>
+                        <div class="pair"><div class="chord-row">D                       A</div><div class="lyric-row">otra ciudad que no se acaba,</div></div>
+                        <div class="pair"><div class="chord-row">                  E</div><div class="lyric-row">sin penas ni tristezas:</div></div>
+                        <div class="pair"><div class="chord-row">                  A</div><div class="lyric-row">ciudad de eternidad.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">15b</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m22">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="16">16. TODOS JUNTOS VAMOS.</div>
+                        <div class="pair"><div class="chord-row">E                 B7</div><div class="lyric-row">TODOS JUNTOS VAMOS</div></div>
+                        <div class="pair"><div class="chord-row">                  E</div><div class="lyric-row">CANTANDO AL SEÑOR</div></div>
+                        <div class="pair"><div class="chord-row">                  B7</div><div class="lyric-row">Y A SU ALTAR LLEGAMOS</div></div>
+                        <div class="pair"><div class="chord-row">                  E</div><div class="lyric-row">CON CANTOS DE AMOR</div></div>
+                        <div class="pair"><div class="chord-row">                  B7</div><div class="lyric-row">TODOS JUNTOS VAMOS</div></div>
+                        <div class="pair"><div class="chord-row">                  E</div><div class="lyric-row">CANTANDO AL SEÑOR.</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">E              A              E</div><div class="lyric-row">Todas nuestras penas quedan lejos</div></div>
+                            <div class="pair"><div class="chord-row">     B7                E</div><div class="lyric-row">y nosotros junto al Señor</div></div>
+                            <div class="pair"><div class="chord-row">                  A        E</div><div class="lyric-row">por eso cantamos gozos nuevos</div></div>
+                            <div class="pair"><div class="chord-row">           B7             E</div><div class="lyric-row">que ofrecemos a nuestro Dios.</div></div>
+                        </div>
+                        <p>Como van los ríos presurosos,<br>todos a juntarse en el mar,<br>así los cristianos corremos<br>todos juntos ante tu altar.</p>
+                        <p>Somos hoy tu pueblo redimido,<br>que cansado llega a tu altar,<br>y todos queremos comer juntos,<br>de esta mesa de la unidad.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">16</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m23">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="17">17. UN SOLO SEÑOR.</div>
+                        <div class="pair"><div class="chord-row">F              Dm</div><div class="lyric-row">UN SOLO SEÑOR,</div></div>
+                        <div class="pair"><div class="chord-row">F              Dm</div><div class="lyric-row">UNA SOLA FE,</div></div>
+                        <div class="pair"><div class="chord-row">      C        F  C</div><div class="lyric-row">UN SOLO BAUTISMO,</div></div>
+                        <div class="pair"><div class="chord-row">      Am  Bb    C  F</div><div class="lyric-row">UN SOLO DIOS Y PADRE.</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">F              Dm     C</div><div class="lyric-row">Llamados a guardar la unidad</div></div>
+                            <div class="pair"><div class="chord-row">     Bb        Am       F</div><div class="lyric-row">del Espíritu, por el vínculo de la paz,</div></div>
+                            <div class="pair"><div class="chord-row">     C   Dm     F C</div><div class="lyric-row">cantamos y proclamamos.</div></div>
+                        </div>
+                        <p>Llamados a formar un solo cuerpo<br>en un mismo Espíritu,<br>cantamos y proclamamos.</p>
+                        <p>Llamados a compartir<br>una misma esperanza en Cristo<br>cantamos y proclamamos.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">17</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m24">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="18">18. VAMOS CANTANDO AL SEÑOR.</div>
+                        <div class="pair"><div class="chord-row">C              F           C   C7</div><div class="lyric-row">VAMOS CANTANDO AL SEÑOR,</div></div>
+                        <div class="pair"><div class="chord-row">       F              G7 C</div><div class="lyric-row">ÉL ES NUESTRA ALEGRÍA (2v).</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">C   F             C</div><div class="lyric-row">La luz de un nuevo día</div></div>
+                            <div class="pair"><div class="chord-row">     F             C</div><div class="lyric-row">venció la oscuridad,</div></div>
+                            <div class="pair"><div class="chord-row">      DmG7              C</div><div class="lyric-row">que brille en nuestras almas</div></div>
+                            <div class="pair"><div class="chord-row">     Am          G7</div><div class="lyric-row">la luz de la verdad.</div></div>
+                        </div>
+                        <p>La roca que nos salva<br>es Cristo, nuestro Dios,<br>lleguemos dando gracias<br>a nuestro Redentor.</p>
+                        <p>Los cielos y la tierra<br>aclaman al Señor:<br>ha hecho maravillas,<br>inmenso es su amor.</p>
+                        <p>Unidos como hermanos,<br>venimos a tu altar,<br>que llenes nuestras vidas<br>de amor y de amistad.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">18</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m25">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="19">19. VAYAMOS JUBILOSOS.</div>
+                        <div class="pair"><div class="chord-row">       G          D</div><div class="lyric-row">VAYAMOS JUBILOSOS</div></div>
+                        <div class="pair"><div class="chord-row">Em   Bm     G</div><div class="lyric-row">AL ALTAR DE DIOS</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">       G          C  D</div><div class="lyric-row">Al sagrado altar nos guíen,</div></div>
+                            <div class="pair"><div class="chord-row">       G          C Bm</div><div class="lyric-row">su verdad y tu justicia;</div></div>
+                            <div class="pair"><div class="chord-row">              Am Bm</div><div class="lyric-row">a ofrecer el sacrificio,</div></div>
+                            <div class="pair"><div class="chord-row">       Em        D7 G</div><div class="lyric-row">que le da gloria infinita.</div></div>
+                        </div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">       G          C  D</div><div class="lyric-row">Al Dios santo celebremos,</div></div>
+                            <div class="pair"><div class="chord-row">       G          C Bm</div><div class="lyric-row">que nos llena de alegría;</div></div>
+                            <div class="pair"><div class="chord-row">              Am Bm</div><div class="lyric-row">y subamos hasta el monte,</div></div>
+                            <div class="pair"><div class="chord-row">       Em        D7 G</div><div class="lyric-row">donde Dios se sacrifica.</div></div>
+                        </div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">       G          C  D</div><div class="lyric-row">Ofrezcamos todos juntos,</div></div>
+                            <div class="pair"><div class="chord-row">       G          C Bm</div><div class="lyric-row">esta Víctima divina;</div></div>
+                            <div class="pair"><div class="chord-row">              Am Bm</div><div class="lyric-row">que se inmola por nosotros</div></div>
+                            <div class="pair"><div class="chord-row">       Em        D7 G</div><div class="lyric-row">para darnos luz y vida.</div></div>
+                        </div>
+                        <p>Gloria sea al Padre Eterno,<br>gloria a Cristo nuestro guía;<br>y al Espíritu divino,<br>alabanzas infinitas.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">19</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m26">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="20">20. VAYAMOS UNIDOS.</div>
+                        <div class="pair"><div class="chord-row">G        Am    D7       G</div><div class="lyric-row">Vayamos unidos al Padre de amor</div></div>
+                        <div class="pair"><div class="chord-row">              Am    D7       G</div><div class="lyric-row">formemos en Cristo el Pueblo de Dios.</div></div>
+                        <div class="pair"><div class="chord-row">G              Am</div><div class="lyric-row">QUE VIVE, QUE AMA,</div></div>
+                        <div class="pair"><div class="chord-row">       D7            G</div><div class="lyric-row">QUE ESPERA, QUE CREE (2v).</div></div>
+                        <p>Hagamos del mundo un mundo mejor<br>unamos a todos en un corazón.</p>
+                        <p>Juntemos las manos en signo de unión,<br>Unamos las voces en una oración.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">20</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m27">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="21">21. VENID A LA CASA DEL PADRE.</div>
+                        <div class="pair"><div class="chord-row">D          G       D   D7</div><div class="lyric-row">VENID A LA CASA DEL PADRE,</div></div>
+                        <div class="pair"><div class="chord-row">       G        A7</div><div class="lyric-row">CON JÚBILO ALABEMOS SU</div></div>
+                        <div class="pair"><div class="chord-row">D</div><div class="lyric-row">NOMBRE (2v).</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">D          G       D   D7</div><div class="lyric-row">Aclamad al Señor toda la tierra</div></div>
+                            <div class="pair"><div class="chord-row">       G              A7</div><div class="lyric-row">y servidle con júbilo gozosos,</div></div>
+                            <div class="pair"><div class="chord-row">       G        A7       D     Bm</div><div class="lyric-row">y servidle con júbilo gozosos,</div></div>
+                            <div class="pair"><div class="chord-row">G                    A7</div><div class="lyric-row">entrad en su presencia con alegría.</div></div>
+                        </div>
+                        <p>Jubilosos llegad ante sus puertas<br>y a sus atrios entrad con alborozo,<br>y a sus atrios entrad con alborozo,<br>llenad de alabanza y bendición su nombre.</p>
+                        <p>Porque es bueno el Señor omnipotente,<br>su piedad es eterna para el hombre,<br>su piedad es eterna para el hombre,<br>y su fidelidad perdura eternamente.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">21</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m28">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="22">22. VENIMOS HOY A TU ALTAR.</div>
+                        <div class="pair"><div class="chord-row">G                          Bm</div><div class="lyric-row">VENIMOS HOY A TU ALTAR</div></div>
+                        <div class="pair"><div class="chord-row">          C              D7</div><div class="lyric-row">A CANTARTE, SEÑOR.</div></div>
+                        <div class="pair"><div class="chord-row">          C                 G     D7</div><div class="lyric-row">PUES TÚ ERES LA ALEGRÍA DE</div></div>
+                        <div class="pair"><div class="chord-row">                C</div><div class="lyric-row">NUESTRO CORAZÓN (2v).</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">G              Em</div><div class="lyric-row">Tú hiciste los cielos,</div></div>
+                            <div class="pair"><div class="chord-row">         C      Am        D7</div><div class="lyric-row">los llenas de estrellas, de luz y calor.</div></div>
+                            <div class="pair"><div class="chord-row">G              Em</div><div class="lyric-row">Tú pintaste la aurora,</div></div>
+                            <div class="pair"><div class="chord-row">         C      Am         D7</div><div class="lyric-row">hiciste las nubes, las puestas del sol.</div></div>
+                        </div>
+                        <p>Tú creaste la risa,<br>la paz y la dicha, la felicidad.<br>Tú al darnos la vida,<br>nos das tus riquezas, tu eterna amistad.</p>
+                        <p>Tú nos diste a tu madre,<br>nos diste tu cuerpo, tu sangre en manjar.<br>Tú nos diste esperanza,<br>la fe y nos hiciste capaces de amar.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">22</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m29">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="23">23. VIENEN CON ALEGRÍA.</div>
+                        <div class="pair"><div class="chord-row">D                    A7 D</div><div class="lyric-row">VIENEN CON ALEGRÍA, SEÑOR</div></div>
+                        <div class="pair"><div class="chord-row"> </div><div class="lyric-row">CANTANDO VIENEN CON</div></div>
+                        <div class="pair"><div class="chord-row">A7 D</div><div class="lyric-row">ALEGRÍA, SEÑOR,</div></div>
+                        <div class="pair"><div class="chord-row">G</div><div class="lyric-row">LOS QUE CAMINAN POR LA</div></div>
+                        <div class="pair"><div class="chord-row">D                    E</div><div class="lyric-row">VIDA SEÑOR, SEMBRANDO</div></div>
+                        <div class="pair"><div class="chord-row">      Bm   E   A</div><div class="lyric-row">TU PAZ Y AMOR.</div></div>
+                        <div class="pair"><div class="chord-row">          A              D</div><div class="lyric-row">SEMBRANDO TU PAZ Y AMOR.</div></div>
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">D</div><div class="lyric-row">Viene trayendo la esperanza,</div></div>
+                            <div class="pair"><div class="chord-row">                           D</div><div class="lyric-row">a un mundo cargado de ansiedad;</div></div>
+                            <div class="pair"><div class="chord-row">                           A7</div><div class="lyric-row">a un mundo que busca y que no alcanza</div></div>
+                            <div class="pair"><div class="chord-row">                      D</div><div class="lyric-row">caminos de amor y de amistad.</div></div>
+                        </div>
+                        <p>Vienen trayendo entre sus manos<br>esfuerzos de hermanos por la paz,<br>deseos de un mundo más humano<br>que nacen del bien y la verdad.</p>
+                        <p>Cuando el odio y la violencia<br>aniden en nuestro corazón,<br>el mundo sabrá que por herencia<br>le aguardan tristeza y dolor.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">23</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m30">
+                <div class="front">
+                    <div class="header">Entrada - Tiempo Ordinario</div>
+                    <div class="song-page ultra wide">
+                        <div class="song-title" data-song="24">24. QUÉ ALEGRÍA CUANDO ME DIJERON.</div>
+                        <div class="columns">
+                            <div>
+                                <div class="pair"><div class="chord-row">D            Em7      A7   D   Bm E7</div><div class="lyric-row">¡QUÉ ALEGRÍA CUANDO ME DIJERON:</div></div>
+                                <div class="pair"><div class="chord-row">A                 E7        A      A7</div><div class="lyric-row">“VAMOS A LA CASA DEL SEÑOR”!</div></div>
+                                <div class="pair"><div class="chord-row">        D      D7              G   Em</div><div class="lyric-row">YA ESTÁN PISANDO NUESTROS PIES</div></div>
+                                <div class="pair"><div class="chord-row">      A          E7 D7  D</div><div class="lyric-row">TUS UMBRALES, JERUSALÉN.</div></div>
+                                <div class="plain-block">
+                                    <div class="pair"><div class="chord-row">D         F#m        Bm    E7</div><div class="lyric-row">Jerusalén está fundada</div></div>
+                                    <div class="pair"><div class="chord-row">      A    E7        A     A7</div><div class="lyric-row">como ciudad bien compacta.</div></div>
+                                    <div class="pair"><div class="chord-row">      D  D7           G    Gm</div><div class="lyric-row">Allá suben las tribus,</div></div>
+                                    <div class="pair"><div class="chord-row">      D   E7 A7 D</div><div class="lyric-row">las tribus del Señor.</div></div>
+                                </div>
+                                <div class="plain-block">
+                                    <div class="pair"><div class="chord-row">D         F#m7       Bm   E7</div><div class="lyric-row">Según la costumbre de Israel</div></div>
+                                    <div class="pair"><div class="chord-row">      A                 E7   A   A7</div><div class="lyric-row">a celebrar el nombre del Señor;</div></div>
+                                    <div class="pair"><div class="chord-row">      D        D7          G   Gm</div><div class="lyric-row">en ella están los tribunales de justicia,</div></div>
+                                    <div class="pair"><div class="chord-row">      D   E7 A7 D</div><div class="lyric-row">en el palacio de David.</div></div>
+                                </div>
+                                <div class="plain-block">
+                                    <div class="pair"><div class="chord-row">D         F#m7       Bm   E7</div><div class="lyric-row">Desead la paz a Jerusalén:</div></div>
+                                    <div class="pair"><div class="chord-row">      A           E7      A      A7</div><div class="lyric-row">“vivan seguros los que te aman,</div></div>
+                                    <div class="pair"><div class="chord-row">      D   D7           G    Gm</div><div class="lyric-row">haya paz dentro de tus muros,</div></div>
+                                    <div class="pair"><div class="chord-row">      D   E7 A7 D</div><div class="lyric-row">en tus palacios seguridad”.</div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="pair"><div class="chord-row">D               F#m      Bm   E7</div><div class="lyric-row">Por mis hermanos y compañeros,</div></div>
+                                <div class="pair"><div class="chord-row">      A         E7      A    A7</div><div class="lyric-row">voy a decir: “la paz contigo”.</div></div>
+                                <div class="plain-block">
+                                    <div class="pair"><div class="chord-row">D             D7               G   Gm</div><div class="lyric-row">Por la casa del Señor, nuestro Dios,</div></div>
+                                    <div class="pair"><div class="chord-row">       D   E7 A7 D</div><div class="lyric-row">te deseo todo bien.</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">24</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m31">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title decor-section-title-long" data-section="adviento">ENTRADA DE ADVIENTO</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m32">
+                <div class="front">
+                    <div class="header">Entrada - Adviento</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="25">25. EL REY VENDRÁ AL AMANECER.</div>
+                        <div class="pair"><div class="chord-row">D        A      G    A</div><div class="lyric-row">El rey vendrá al amanecer</div></div>
+                        <div class="pair"><div class="chord-row">Bm     F#m   G    A</div><div class="lyric-row">y luz triunfante brillará,</div></div>
+                        <div class="pair"><div class="chord-row">Bm     F#m   G    A   D</div><div class="lyric-row">su gloria cubrirá el país</div></div>
+                        <div class="pair"><div class="chord-row">G       A        D</div><div class="lyric-row">y el gozo abundará.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">D          A          G     A</div><div class="lyric-row">VEN, OH VEN, OH REY JESÚS.</div></div>
+                            <div class="pair"><div class="chord-row">Bm     F#m   G  A</div><div class="lyric-row">VEN EMMANUEL.</div></div>
+                            <div class="pair"><div class="chord-row">Bm        F#m   G     A  D</div><div class="lyric-row">LA IGLESIA TE ESPERA, PRONTO VEN.</div></div>
+                            <div class="pair"><div class="chord-row">Bm     A     G        A</div><div class="lyric-row">OH VEN EMMANUEL, VEN EMMANUEL.</div></div>
+                        </div>
+
+                        <p>No como un niño como ayer,<br>ya no vendrá a luchar;<br>vendrá coronado de esplendor:<br>su luz refulgirá.</p>
+                        <p>El Rey vendrá al amanecer,<br>y su belleza traerá<br>¡aclama a Cristo el Señor!<br>¡Oh Rey de reyes ven!</p>
+                        <p>Ven, oh ven, oh Rey Jesús.<br>Ven Emmanuel.<br>La Iglesia te espera, pronto ven.<br>Oh ven Emmanuel, ven Emmanuel.<br>Oh ven Emmanuel, ven Emmanuel.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">25</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m33">
+                <div class="front">
+                    <div class="header">Entrada - Adviento</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="26">26. LLEGARÁ LA LIBERTAD.</div>
+                        <div class="pair"><div class="chord-row">C                    Am</div><div class="lyric-row">Caminamos hacia el sol</div></div>
+                        <div class="pair"><div class="chord-row">      Dm G7      C</div><div class="lyric-row">esperando la verdad;</div></div>
+                        <div class="pair"><div class="chord-row">C                    Am</div><div class="lyric-row">la mentira, la opresión</div></div>
+                        <div class="pair"><div class="chord-row">      Dm G7      C</div><div class="lyric-row">cuando vengas cesarán.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">        F             C   Am</div><div class="lyric-row">LLEGARÁ CON LA LUZ</div></div>
+                            <div class="pair"><div class="chord-row">        Dm G7       C  (C7)</div><div class="lyric-row">LA ESPERADA LIBERTAD (2v).</div></div>
+                        </div>
+
+                        <p>Construimos hoy la paz<br>en la lucha y el dolor;<br>nuestro mundo surge ya<br>en la espera del Señor.</p>
+                        <p>Te esperamos, tú vendrás<br>a librarnos del temor;<br>la alegría, la amistad<br>son ya signos de tu amor.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">26</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m34">
+                <div class="front">
+                    <div class="header">Entrada - Adviento</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="27">27. SEÑOR JESÚS, VEN PRONTO.</div>
+                        <div class="pair"><div class="chord-row">D        G        D</div><div class="lyric-row">SEÑOR JESÚS VEN PRONTO</div></div>
+                        <div class="pair"><div class="chord-row">          (A7)   A7 (D)</div><div class="lyric-row">ERES NUESTRA SALVACIÓN (2v).</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">D                         G</div><div class="lyric-row">Tu pueblo está en marcha a la</div></div>
+                            <div class="pair"><div class="chord-row">     D                         A7</div><div class="lyric-row">nueva tierra, eres nuestra salvación.</div></div>
+                            <div class="pair"><div class="chord-row">D              G              D</div><div class="lyric-row">Sin ti el camino se pierde en la nada,</div></div>
+                            <div class="pair"><div class="chord-row">          A7   D</div><div class="lyric-row">eres nuestra salvación.</div></div>
+                        </div>
+
+                        <p>Con la buena nueva nutres nuestras<br>vidas, eres nuestra salvación.<br>Tu pan nos da vida, nos da fortaleza<br>eres nuestra salvación.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">27</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m35">
+                <div class="front">
+                    <div class="header">Entrada - Adviento</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="28">28. UN PUEBLO QUE CAMINA.</div>
+                        <div class="pair"><div class="chord-row">Dm</div><div class="lyric-row">UN PUEBLO QUE CAMINA</div></div>
+                        <div class="pair"><div class="chord-row">        C</div><div class="lyric-row">POR EL MUNDO</div></div>
+                        <div class="pair"><div class="chord-row">     Bb     C      Dm</div><div class="lyric-row">GRITANDO: ¡VEN SEÑOR!</div></div>
+                        <div class="pair"><div class="chord-row">                         C</div><div class="lyric-row">UN PUEBLO QUE BUSCA EN ESTA VIDA</div></div>
+                        <div class="pair"><div class="chord-row">     Bb     C      Dm</div><div class="lyric-row">LA GRAN LIBERACIÓN.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">   Gm              C      Am  Dm</div><div class="lyric-row">Los pobres siempre esperan el amanecer</div></div>
+                            <div class="pair"><div class="chord-row">   Gm      C       Dm</div><div class="lyric-row">de un día más justo y sin opresión.</div></div>
+                            <div class="pair"><div class="chord-row">   Gm       C          Am</div><div class="lyric-row">Los pobres hemos puesto la esperanza</div></div>
+                            <div class="pair"><div class="chord-row">   Dm      A7</div><div class="lyric-row">en ti, Libertador.</div></div>
+                        </div>
+
+                        <p>Salvaste nuestra vida de la esclavitud,<br>esclavos de la ley, sirviendo en el temor.<br>Nosotros hemos puesto la esperanza en<br>ti, Dios del amor.</p>
+                        <p>El mundo por la guerra sangra sin razón,<br>familias destrozadas buscan un hogar.<br>El mundo tiene puesta su esperanza<br>en ti, Dios de la paz.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">28</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m36">
+                <div class="front">
+                    <div class="header">Entrada - Adviento</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="29">29. VEN, SEÑOR.</div>
+                        <div class="pair"><div class="chord-row">E      C#m    A            B7</div><div class="lyric-row">VEN SEÑOR NO TARDES EN LLEGAR,</div></div>
+                        <div class="pair"><div class="chord-row">E      C#m    A            B7</div><div class="lyric-row">Y LA PAZ AL MUNDO LE DARÁS,</div></div>
+                        <div class="pair"><div class="chord-row">E      C#m    A            B7</div><div class="lyric-row">CON TU LUZ PODREMOS CAMINAR</div></div>
+                        <div class="pair"><div class="chord-row">       A      B7          E</div><div class="lyric-row">Y LA NOCHE SE VUELVE CLARIDAD.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">E                 A</div><div class="lyric-row">El misterio de un pecado,</div></div>
+                            <div class="pair"><div class="chord-row">                  E</div><div class="lyric-row">vino a ser una promesa,</div></div>
+                            <div class="pair"><div class="chord-row">                  A</div><div class="lyric-row">el milagro de la culpa,</div></div>
+                            <div class="pair"><div class="chord-row">             E F#7  B7</div><div class="lyric-row">fue causa de redención.</div></div>
+                        </div>
+
+                        <p>Del cantar de los profetas,<br>fue brotando la esperanza,<br>la sonrisa de una Virgen<br>dio al mundo la salvación.</p>
+                        <p>Por las sendas de la vida,<br>se abren nuevos horizontes,<br>en las sombras de las penas,<br>un nuevo sol brillará.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">29</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m37">
+                <div class="front">
+                    <div class="header">Entrada - Adviento</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="30">30. VEN, SEÑOR JESÚS.</div>
+                        <div class="pair"><div class="chord-row">C</div><div class="lyric-row">VEN, SEÑOR JESÚS</div></div>
+                        <div class="pair"><div class="chord-row">F                 C</div><div class="lyric-row">VEN NO TARDES MÁS,</div></div>
+                        <div class="pair"><div class="chord-row">Dm    C    G      C</div><div class="lyric-row">TE ESPERAMOS, SEÑOR.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">Am             Dm</div><div class="lyric-row">Muéstrame tus caminos</div></div>
+                            <div class="pair"><div class="chord-row">G7        Am</div><div class="lyric-row">y tu misericordia,</div></div>
+                            <div class="pair"><div class="chord-row">E          Am    G</div><div class="lyric-row">muéstrame tu bondad.</div></div>
+                        </div>
+
+                        <p>Guía por senda recta<br>los pasos de tu siervo,<br>pues tú eres la verdad.</p>
+                        <p>Puestos en ti mis ojos,<br>pues eres mi esperanza,<br>eres mi salvador.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">30</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m38">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title decor-section-title-long" data-section="navidad">ENTRADA NAVIDAD</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m39">
+                <div class="front">
+                    <div class="header">Entrada - Navidad</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="31">31. ADESTE FIDELES.</div>
+                        <p>Venid fieles todos, con gozo triunfantes</p>
+                        <p>venid, venid, a Belén venid.</p>
+                        <p>Ved ya nacido el Rey de los ángeles.</p>
+
+                        <div class="plain-block">
+                            <p>VENID Y ADOREMOS</p>
+                            <p>VENID Y ADOREMOS</p>
+                            <p>VENID Y ADOREMOS</p>
+                            <p>A NUESTRO SEÑOR.</p>
+                        </div>
+
+                        <p>Dejando el rebaño humildes pastores<br>siguiendo el llamado acuden al portal.<br>También nosotros con ánimo alegre.</p>
+                        <p>Del eterno Padre esplendor eterno<br>oculto en la carne contemplamos hoy.<br>Al Dios infante envuelto en pañales.</p>
+                        <p>Por nosotros nace pobre en un pesebre<br>Y sobre las pajas reclinado está.<br>¿Quién contemplarle podrá sin amarle?</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">31</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m40">
+                <div class="front">
+                    <div class="header">Entrada - Navidad</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="32">32. GLORIA IN EXCELSIS DEO.</div>
+                        <div class="pair"><div class="chord-row">D          A7   D</div><div class="lyric-row">Ángeles en las alturas</div></div>
+                        <div class="pair"><div class="chord-row">             A7     D</div><div class="lyric-row">Con sus voces de cristal</div></div>
+                        <div class="pair"><div class="chord-row">             A7     D</div><div class="lyric-row">Van cantando gloria al niño,</div></div>
+                        <div class="pair"><div class="chord-row">             A7     D</div><div class="lyric-row">A los hombres cantan paz.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">D  Bm Em A D G  A7</div><div class="lyric-row">GLO---------------RIA</div></div>
+                            <div class="pair"><div class="chord-row">D    G      D  A7 D</div><div class="lyric-row">IN EXCELSIS DEO.</div></div>
+                            <div class="pair"><div class="chord-row">D  Bm Em A D G  A7</div><div class="lyric-row">GLO---------------RIA</div></div>
+                            <div class="pair"><div class="chord-row">D    G      D  A7 D</div><div class="lyric-row">IN EXCELSIS DEO.</div></div>
+                        </div>
+
+                        <p>Esta noche las estrellas<br>Nos conducen al portal.<br>Con los ángeles del cielo<br>Entonamos un cantar.</p>
+                        <p>Sueña el niño, sueña el ángel<br>Sueños de la navidad.<br>Los pastores bien despiertos,<br>No se cansan de soñar.</p>
+                        <p>Niño que de noche vienes,<br>No nos dejes de mirar;<br>Si tus ojos se durmieran,<br>El amor los abrirá.</p>
+                        <p>Hoy se cumple tu promesa:<br>Nuestro Dios nos va a salvar.<br>Con los ángeles cantemos<br>Para siempre su bondad.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">32</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m41">
+                <div class="front">
+                    <div class="header">Entrada - Navidad</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="33">33. PASTORES CON ALEGRÍA.</div>
+                        <div class="pair"><div class="chord-row">E</div><div class="lyric-row">PASTORES CON ALEGRÍA</div></div>
+                        <div class="pair"><div class="chord-row"> </div><div class="lyric-row">VAMOS A CANTAR</div></div>
+                        <div class="pair"><div class="chord-row">     A             E</div><div class="lyric-row">AL REY QUE HA NACIDO</div></div>
+                        <div class="pair"><div class="chord-row">     B7            E</div><div class="lyric-row">VAYAMOS A ADORAR (2v).</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">E</div><div class="lyric-row">Llegado el tiempo esperado</div></div>
+                            <div class="pair"><div class="chord-row"> </div><div class="lyric-row">el ángel dijo a María:</div></div>
+                            <div class="pair"><div class="chord-row">A              E</div><div class="lyric-row">Madre serás del niño</div></div>
+                            <div class="pair"><div class="chord-row">     B7           E</div><div class="lyric-row">que será el salvador (2v).</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">33</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m42">
+                <div class="front">
+                    <div class="header">Entrada - Navidad</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="34">34. FAMILIA DE NAZARET.</div>
+                        <div class="pair"><div class="chord-row">C        F       C</div><div class="lyric-row">JESÚS, MARÍA Y JOSÉ,</div></div>
+                        <div class="pair"><div class="chord-row">     G7            C</div><div class="lyric-row">FAMILIA DE NAZARET</div></div>
+                        <div class="pair"><div class="chord-row">                 Am</div><div class="lyric-row">JESÚS, MARÍA Y JOSÉ</div></div>
+                        <div class="pair"><div class="chord-row">     F          G       C</div><div class="lyric-row">MODELO DE AMOR Y DE FE (2v).</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">     C          Em</div><div class="lyric-row">Era pobre y silenciosa,</div></div>
+                            <div class="pair"><div class="chord-row">F        G        C</div><div class="lyric-row">pero con rayos de luz;</div></div>
+                            <div class="pair"><div class="chord-row">Dm              Am</div><div class="lyric-row">olor a jazmín y a rosa</div></div>
+                            <div class="pair"><div class="chord-row">     G</div><div class="lyric-row">y el Niño que la alboroza:</div></div>
+                            <div class="pair"><div class="chord-row">        D7      G  G7</div><div class="lyric-row">es la casa de Jesús.</div></div>
+                        </div>
+
+                        <p>Un taller de carpintero<br>y un gran misterio de fe;<br>manos callosas de obrero,<br>justas manos de hombre entero:<br>es la casa de José.</p>
+                        <p>Había júbilo y canto;<br>ella lavaba y barría<br>y el arcángel saludando<br>repetía noche y día:<br>“Casa del Ave María”.</p>
+                        <p>Familia pobre y divina,<br>pobre mesa, pobre casa,<br>mucha unión, ninguna espina<br>y el ejemplo que culmina<br>en un amor que no pasa.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">34</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m43">
+                <div class="front">
+                    <div class="header">Entrada - Navidad</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="35">35. REYES SON.</div>
+                        <div class="pair"><div class="chord-row">Dm</div><div class="lyric-row">REYES SON VAN A ADORAR AL REY</div></div>
+                        <div class="pair"><div class="chord-row">     Gm                    A    Dm</div><div class="lyric-row">LE LLEVAN ORO PARA SU CORONA.</div></div>
+                        <div class="pair"><div class="chord-row"> </div><div class="lyric-row">REYES SON, VAN A ADORAR AL REY</div></div>
+                        <div class="pair"><div class="chord-row">     Gm                    A    Dm</div><div class="lyric-row">INCIENSO Y MIRRA A SU MAJESTAD.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">Dm                       A</div><div class="lyric-row">El trono estaba desde David</div></div>
+                            <div class="pair"><div class="chord-row">     C        Gm       A</div><div class="lyric-row">sin rey que hiciera justicia al mundo.</div></div>
+                            <div class="pair"><div class="chord-row">Dm                       A</div><div class="lyric-row">Y viene ungido de amor y paz,</div></div>
+                            <div class="pair"><div class="chord-row">     C        Gm     A       Dm</div><div class="lyric-row">cantemos todos un himno triunfal.</div></div>
+                        </div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">Dm                       A</div><div class="lyric-row">Se muestra el niño, se muestra Dios,</div></div>
+                            <div class="pair"><div class="chord-row">     C        Gm       A</div><div class="lyric-row">el universo recibe nueva vida.</div></div>
+                            <div class="pair"><div class="chord-row">Dm                       A</div><div class="lyric-row">Ha comenzado la salvación,</div></div>
+                            <div class="pair"><div class="chord-row">     C        Gm       A       Dm</div><div class="lyric-row">dichoso el hombre que acepta este don.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">35</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m44">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title decor-section-title-long" data-section="cuaresma">ENTRADA CUARESMA</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m45">
+                <div class="front">
+                    <div class="header">Entrada - Cuaresma</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="36">36. EL SEÑOR ES COMPASIVO.</div>
+                        <div class="pair"><div class="chord-row">A    D       G       A</div><div class="lyric-row">EL SEÑOR ES COMPASIVO</div></div>
+                        <div class="pair"><div class="chord-row">      D       G       A</div><div class="lyric-row">EL SEÑOR ES MISERICORDIOSO</div></div>
+                        <div class="pair"><div class="chord-row">          F#          Bm</div><div class="lyric-row">Y A SU MESA HOY VENIMOS</div></div>
+                        <div class="pair"><div class="chord-row">          Em     G      A</div><div class="lyric-row">CON EL CORAZÓN RENDIDO</div></div>
+                        <div class="pair"><div class="chord-row">                  G       A       D</div><div class="lyric-row">// CON EL CORAZÓN RENDIDO</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">          D</div><div class="lyric-row">Por tu inmensa compasión</div></div>
+                            <div class="pair"><div class="chord-row">          F#m</div><div class="lyric-row">apiádate Dios mío</div></div>
+                            <div class="pair"><div class="chord-row">          Bm</div><div class="lyric-row">olvida nuestras ofensas</div></div>
+                            <div class="pair"><div class="chord-row">          F#m</div><div class="lyric-row">lávanos de nuestras faltas</div></div>
+                            <div class="pair"><div class="chord-row">          G                 Em       A   GA</div><div class="lyric-row">purifícanos Señor, purifícanos Señor.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">36</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m46">
+                <div class="front">
+                    <div class="header">Entrada - Cuaresma</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="37">37. HACIA TI MORADA SANTA.</div>
+                        <div class="pair"><div class="chord-row">Dm                   A7</div><div class="lyric-row">HACIA TI MORADA SANTA,</div></div>
+                        <div class="pair"><div class="chord-row">        Gm A7              Dm</div><div class="lyric-row">HACIA TI, TIERRA DEL SALVADOR,</div></div>
+                        <div class="pair"><div class="chord-row">        C             Bb</div><div class="lyric-row">PEREGRINOS, CAMINANTES,</div></div>
+                        <div class="pair"><div class="chord-row">                     A7</div><div class="lyric-row">VAMOS A HACIA TI.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">                 Dm</div><div class="lyric-row">Venimos a tu mesa,</div></div>
+                            <div class="pair"><div class="chord-row">          C</div><div class="lyric-row">sellaremos tu pacto,</div></div>
+                            <div class="pair"><div class="chord-row">          Bb</div><div class="lyric-row">comeremos tu carne,</div></div>
+                            <div class="pair"><div class="chord-row">                    A7</div><div class="lyric-row">tu sangre nos limpiará.</div></div>
+                            <div class="pair"><div class="chord-row">                 Dm</div><div class="lyric-row">Reinaremos contigo,</div></div>
+                            <div class="pair"><div class="chord-row">          C</div><div class="lyric-row">en tu morada santa,</div></div>
+                            <div class="pair"><div class="chord-row">          Bb</div><div class="lyric-row">beberemos tu sangre,</div></div>
+                            <div class="pair"><div class="chord-row">                    A7</div><div class="lyric-row">tu fe nos salvará.</div></div>
+                        </div>
+
+                        <p>Somos tu pueblo santo,<br>que hoy camina unido,<br>Tú vas entre nosotros,<br>tu amor nos guiará.<br>Tú eres el camino,<br>Tú eres la esperanza,<br>hermano de los pobres.<br>Amén. Aleluya.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">37</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m47">
+                <div class="front">
+                    <div class="header">Entrada - Cuaresma</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="38">38. NOS HAS LLAMADO AL DESIERTO (Em).</div>
+                        <div class="pair"><div class="chord-row">Em</div><div class="lyric-row">NOS HAS LLAMADO AL DESIERTO,</div></div>
+                        <div class="pair"><div class="chord-row">       Am              Em</div><div class="lyric-row">SEÑOR DE LA LIBERTAD</div></div>
+                        <div class="pair"><div class="chord-row">       F           B7     Em</div><div class="lyric-row">Y ESTÁ EL CORAZÓN ABIERTO,</div></div>
+                        <div class="pair"><div class="chord-row">       Am              B7</div><div class="lyric-row">A LA LUZ DE TU VERDAD.</div></div>
+                        <div class="pair"><div class="chord-row">Em</div><div class="lyric-row">SUBIMOS CON ESPERANZA,</div></div>
+                        <div class="pair"><div class="chord-row">       Am D          G</div><div class="lyric-row">LA ESCALADA CUARESMAL</div></div>
+                        <div class="pair"><div class="chord-row">       F           B7     Em</div><div class="lyric-row">EL PUEBLO DE DIOS AVANZA,</div></div>
+                        <div class="pair"><div class="chord-row">F#          B7          Em</div><div class="lyric-row">HASTA LA CUMBRE PASCUAL.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">Em</div><div class="lyric-row">Tu pueblo Señor camina,</div></div>
+                            <div class="pair"><div class="chord-row">Am          B7      Em</div><div class="lyric-row">desde la aurora al ocaso</div></div>
+                            <div class="pair"><div class="chord-row">        G</div><div class="lyric-row">a tu Pascua de encamina</div></div>
+                            <div class="pair"><div class="chord-row">        D          Em</div><div class="lyric-row">y te sigue paso a paso.</div></div>
+                        </div>
+
+                        <p>Señor te reconocemos<br>y tu Palabra escuchamos,<br>tus caminos seguiremos<br>y tu ley de amor cantamos.</p>
+                        <p>Se acerca Señor tu día,<br>en el que todo florece<br>con su luz y su alegría<br>y el camino resplandece<br>en la nueva creación.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">38</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m48">
+                <div class="front">
+                    <div class="header">Entrada - Cuaresma</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="39">39. NOS HAS LLAMADO AL DESIERTO (Dm).</div>
+                        <div class="pair"><div class="chord-row">Dm</div><div class="lyric-row">NOS HAS LLAMADO AL DESIERTO,</div></div>
+                        <div class="pair"><div class="chord-row">       Gm             Dm</div><div class="lyric-row">SEÑOR DE LA LIBERTAD</div></div>
+                        <div class="pair"><div class="chord-row">       Gm        A7    Dm</div><div class="lyric-row">Y ESTÁ EL CORAZÓN ABIERTO,</div></div>
+                        <div class="pair"><div class="chord-row">       Gm             A7</div><div class="lyric-row">A LA LUZ DE TU VERDAD.</div></div>
+                        <div class="pair"><div class="chord-row">Dm</div><div class="lyric-row">SUBIMOS CON ESPERANZA,</div></div>
+                        <div class="pair"><div class="chord-row">       Gm C          F</div><div class="lyric-row">LA ESCALADA CUARESMAL</div></div>
+                        <div class="pair"><div class="chord-row">       Gm       A7     Dm</div><div class="lyric-row">EL PUEBLO DE DIOS AVANZA,</div></div>
+                        <div class="pair"><div class="chord-row">E           A7          Dm</div><div class="lyric-row">HASTA LA CUMBRE PASCUAL.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">Dm</div><div class="lyric-row">Tu pueblo Señor camina,</div></div>
+                            <div class="pair"><div class="chord-row">Gm         A7      Dm</div><div class="lyric-row">desde la aurora al ocaso</div></div>
+                            <div class="pair"><div class="chord-row">        F</div><div class="lyric-row">a tu Pascua se encamina</div></div>
+                            <div class="pair"><div class="chord-row">        C          Dm</div><div class="lyric-row">y te sigue paso a paso.</div></div>
+                        </div>
+
+                        <p>Señor te reconocemos<br>y tu Palabra escuchamos,<br>tus caminos seguiremos<br>y tu ley de amor cantamos.</p>
+                        <p>Se acerca Señor tu día,<br>en el que todo florece<br>con su luz y su alegría<br>y el camino resplandece<br>en la nueva creación.</p>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">39</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m49">
+                <div class="front">
+                    <div class="header">Entrada - Cuaresma</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="40">40. HOSANNA AL HIJO DE DAVID.</div>
+                        <div class="note">(Domingo de Ramos)</div>
+                        <div class="pair"><div class="chord-row">D                         A</div><div class="lyric-row">HOSANNA AL HIJO DE DAVID</div></div>
+                        <div class="pair"><div class="chord-row">        G              Em</div><div class="lyric-row">BENDITO EL QUE VIENE,</div></div>
+                        <div class="pair"><div class="chord-row">        A             D</div><div class="lyric-row">EN NOMBRE DEL SEÑOR,</div></div>
+                        <div class="pair"><div class="chord-row">        Bm Em       A</div><div class="lyric-row">EL REY DE ISRAEL</div></div>
+                        <div class="pair"><div class="chord-row">        G   D      Em G        D A D</div><div class="lyric-row">HOSANNA, HOSANNA EN EL CIELO.</div></div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">D                         Bm</div><div class="lyric-row">Aclamad al Señor tierra entera</div></div>
+                            <div class="pair"><div class="chord-row">C                         E</div><div class="lyric-row">tocad en honor de su nombre</div></div>
+                            <div class="pair"><div class="chord-row">A7                        Em</div><div class="lyric-row">haced resonar sus alabanzas</div></div>
+                            <div class="pair"><div class="chord-row">A7                        D</div><div class="lyric-row">cantad himnos a su gloria.</div></div>
+                        </div>
+
+                        <div class="plain-block">
+                            <div class="pair"><div class="chord-row">D                         Bm</div><div class="lyric-row">Pueblos todos batid palmas</div></div>
+                            <div class="pair"><div class="chord-row">G                         E</div><div class="lyric-row">aclamad a Dios con gritos de júbilo</div></div>
+                            <div class="pair"><div class="chord-row">A7                        Em</div><div class="lyric-row">porque el Señor es sublime y terrible</div></div>
+                            <div class="pair"><div class="chord-row">A7                        D</div><div class="lyric-row">emperador de toda la tierra.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">40</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m50">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title decor-section-title-long" data-section="pascua">ENTRADA DE PASCUA</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m51">
+                <div class="front">
+                    <div class="header">Entrada - Pascua</div>
+                    <div class="song-page tiny flow-cols">
+                        <div class="song-title" data-song="41">41. NUEVA CREACIÓN.</div>
+                        <div class="pair"><div class="chord-row">       Dm             Bb</div><div class="lyric-row">CAMINA PUEBLO DE DIOS,</div></div>
+                        <div class="pair"><div class="chord-row">   C              Dm</div><div class="lyric-row">CAMINA PUEBLO DE DIOS</div></div>
+                        <div class="pair"><div class="chord-row">       F          Am</div><div class="lyric-row">NUEVA LEY, NUEVA ALIANZA</div></div>
+                        <div class="pair"><div class="chord-row">      Bb        A7</div><div class="lyric-row">EN LA NUEVA CREACIÓN</div></div>
+                        <div class="pair"><div class="chord-row">   Dm   Gm       Dm</div><div class="lyric-row">CAMINA PUEBLO DE DIOS</div></div>
+                        <div class="pair"><div class="chord-row">   C              Dm</div><div class="lyric-row">CAMINA PUEBLO DE DIOS.</div></div>
+                        <div class="pair"><div class="chord-row">Dm             Gm</div><div class="lyric-row">Mira allá en el calvario,</div></div>
+                        <div class="pair"><div class="chord-row">      C            Dm</div><div class="lyric-row">en la roca hay una cruz,</div></div>
+                        <div class="pair"><div class="chord-row">Bb                      F</div><div class="lyric-row">muerte que engendra la vida,</div></div>
+                        <div class="pair"><div class="chord-row">       Bb         A7</div><div class="lyric-row">nuevos hombres, nueva luz.</div></div>
+                        <div class="pair"><div class="chord-row">Dm             Gm</div><div class="lyric-row">Cristo nos ha salvado</div></div>
+                        <div class="pair"><div class="chord-row">       C              Dm</div><div class="lyric-row">con su muerte y resurrección.</div></div>
+                        <div class="pair"><div class="chord-row">F                 Am</div><div class="lyric-row">Todas las cosas renacen</div></div>
+                        <div class="pair"><div class="chord-row">     Bb       A7</div><div class="lyric-row">en la nueva creación.</div></div>
+                        <div class="plain-block">
+                            <p>Cristo toma en su cuerpo,</p>
+                            <p>el pecado, la esclavitud;</p>
+                            <p>al destruirlos nos trae</p>
+                            <p>una nueva plenitud.</p>
+                            <p>Pone en paz a los hombres,</p>
+                            <p>a las cosas y al Creador.</p>
+                            <p>Todo renace a la vida</p>
+                            <p>en la nueva Creación.</p>
+                        </div>
+                        <div class="plain-block">
+                            <p>Cielo y tierra se abrazan,</p>
+                            <p>nuestra alma halla el perdón.</p>
+                            <p>Vuelven a abrirse los cielos</p>
+                            <p>para el hombre pecador.</p>
+                            <p>Israel peregrino,</p>
+                            <p>vive y canta tu redención.</p>
+                            <p>Hay nuevos mundos abiertos</p>
+                            <p>en la Nueva Creación.</p>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">41</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m52">
+                <div class="front">
+                    <div class="header">Entrada - Pascua</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="42">42. VAMOS CON GOZO (E).</div>
+                        <div class="pair"><div class="chord-row">      E    B7        A             E</div><div class="lyric-row">Vamos con gozo el Padre nos llama,</div></div>
+                        <div class="pair"><div class="chord-row">C#m    B7   A</div><div class="lyric-row">ven en Espíritu y en verdad,</div></div>
+                        <div class="pair"><div class="chord-row">            B7              E</div><div class="lyric-row">vamos cantando dándole gracias</div></div>
+                        <div class="pair"><div class="chord-row">C#m       B7         A             E</div><div class="lyric-row">todo ha hecho nuevo nuestro salvador.</div></div>
+                        <div class="pair"><div class="chord-row">         B7  A              E</div><div class="lyric-row">ALÉGRATE ¡OH PUEBLO SANTO!</div></div>
+                        <div class="pair"><div class="chord-row">F#m       B7</div><div class="lyric-row">VEN Y ALÁBALE A ÉL,</div></div>
+                        <div class="pair"><div class="chord-row">            B7  A           E</div><div class="lyric-row">Y PÓSTRATE EN SU PRESENCIA,</div></div>
+                        <div class="pair"><div class="chord-row">F#m       B7          C#m</div><div class="lyric-row">CRISTO DE REYES ES REY,</div></div>
+                        <div class="pair"><div class="chord-row">F#m       B7          E</div><div class="lyric-row">CRISTO DE REYES ES REY.</div></div>
+                        <div class="plain-block">
+                            <p>Dios creador misericordioso,</p>
+                            <p>rodeado de gracia y digno de honor,</p>
+                            <p>sentado en el trono reinando glorioso</p>
+                            <p>ahora y por siempre alabanzas a Él.</p>
+                        </div>
+                        <div class="plain-block">
+                            <p>Al son de trompetas vendrán las naciones,</p>
+                            <p>los sacerdotes en su nombre irán,</p>
+                            <p>mostrando el poder a las generaciones</p>
+                            <p>y con alabanzas su Reino de Paz.</p>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">42</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m53">
+                <div class="front">
+                    <div class="header">Entrada - Pascua</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="43">43. VAMOS CON GOZO (D).</div>
+                        <div class="pair"><div class="chord-row">      D    A7        G             D</div><div class="lyric-row">Vamos con gozo el Padre nos llama,</div></div>
+                        <div class="pair"><div class="chord-row">Bm     A7   G</div><div class="lyric-row">ven en Espíritu y en verdad,</div></div>
+                        <div class="pair"><div class="chord-row">            A7              D</div><div class="lyric-row">vamos cantando dándole gracias</div></div>
+                        <div class="pair"><div class="chord-row">Bm        A7         G             D</div><div class="lyric-row">todo ha hecho nuevo nuestro salvador.</div></div>
+                        <div class="pair"><div class="chord-row">         A7  G              D</div><div class="lyric-row">ALÉGRATE ¡OH PUEBLO SANTO!</div></div>
+                        <div class="pair"><div class="chord-row">Em        A7</div><div class="lyric-row">VEN Y ALÁBALE A ÉL,</div></div>
+                        <div class="pair"><div class="chord-row">            A7  G           D</div><div class="lyric-row">Y PÓSTRATE EN SU PRESENCIA,</div></div>
+                        <div class="pair"><div class="chord-row">Em        A7          Bm</div><div class="lyric-row">CRISTO DE REYES ES REY,</div></div>
+                        <div class="pair"><div class="chord-row">Em        A7          D</div><div class="lyric-row">CRISTO DE REYES ES REY.</div></div>
+                        <div class="plain-block">
+                            <p>Dios creador misericordioso,</p>
+                            <p>rodeado de gracia y digno de honor,</p>
+                            <p>sentado en el trono reinando glorioso</p>
+                            <p>ahora y por siempre alabanzas a Él.</p>
+                        </div>
+                        <div class="plain-block">
+                            <p>Al son de trompetas vendrán las naciones,</p>
+                            <p>los sacerdotes en su nombre irán,</p>
+                            <p>mostrando el poder a las generaciones</p>
+                            <p>y con alabanzas su Reino de Paz.</p>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">43</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m54">
+                <div class="front">
+                    <div class="header">Entrada - Pascua</div>
+                    <div class="song-page tiny flow-cols">
+                        <div class="song-title" data-song="44">44. TODOS UNIDOS.</div>
+                        <div class="pair"><div class="chord-row">D                        G       D</div><div class="lyric-row">Todos unidos formando un solo cuerpo,</div></div>
+                        <div class="pair"><div class="chord-row">                          A7</div><div class="lyric-row">un pueblo que en la pascua nació.</div></div>
+                        <div class="pair"><div class="chord-row">                       G          D</div><div class="lyric-row">Miembros de Cristo en sangre redimidos,</div></div>
+                        <div class="pair"><div class="chord-row">             A7      D</div><div class="lyric-row">Iglesia peregrina de Dios.</div></div>
+                        <div class="pair"><div class="chord-row">                       G          D</div><div class="lyric-row">Vive en nosotros la fuerza del Espíritu</div></div>
+                        <div class="pair"><div class="chord-row">                          A7</div><div class="lyric-row">que el Hijo desde el Padre envió.</div></div>
+                        <div class="pair"><div class="chord-row">D                        G     D</div><div class="lyric-row">Él nos empuja, nos guía y alimenta,</div></div>
+                        <div class="pair"><div class="chord-row">             A7      D</div><div class="lyric-row">Iglesia peregrina de Dios.</div></div>
+                        <div class="pair"><div class="chord-row">  A7</div><div class="lyric-row">SOMOS EN LA TIERRA</div></div>
+                        <div class="pair"><div class="chord-row"> </div><div class="lyric-row">SEMILLA DE OTRO REINO,</div></div>
+                        <div class="pair"><div class="chord-row">                  G        D D7</div><div class="lyric-row">SOMOS TESTIMONIO DE AMOR:</div></div>
+                        <div class="pair"><div class="chord-row">G              A7        D</div><div class="lyric-row">PAZ PARA LAS GUERRAS Y LUZ</div></div>
+                        <div class="pair"><div class="chord-row">           Bm</div><div class="lyric-row">ENTRE LAS SOMBRAS.</div></div>
+                        <div class="pair"><div class="chord-row">  Em      A7        D (D7)</div><div class="lyric-row">IGLESIA PEREGRINA DE DIOS.</div></div>
+                        <div class="plain-block">
+                            <p>Rugen tormentas y a veces nuestra barca,</p>
+                            <p>parece que ha perdido el timón.</p>
+                            <p>Miras con miedo, no tienes confianza,</p>
+                            <p>Iglesia peregrina de Dios.</p>
+                            <p>Una esperanza nos llena de alegría:</p>
+                            <p>presencia que el Señor prometió;</p>
+                            <p>vamos cantando Él viene con nosotros,</p>
+                            <p>Iglesia peregrina de Dios.</p>
+                        </div>
+                        <div class="plain-block">
+                            <p>Todos unidos en un solo bautismo,</p>
+                            <p>unidos en la misma comunión.</p>
+                            <p>Todos viviendo en una misma casa,</p>
+                            <p>Iglesia peregrina de Dios.</p>
+                            <p>Todos prendidos, en una misma suerte</p>
+                            <p>ligados a la misma salvación.</p>
+                            <p>Somos un cuerpo, y Cristo es la cabeza,</p>
+                            <p>Iglesia peregrina de Dios.</p>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">44</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m55">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title decor-section-title-long" data-section="kirie">KIRIE ELEISON</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m56">
+                <div class="front">
+                    <div class="header">Kirie Eleison</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="45">45. A.</div>
+                            <div class="pair"><div class="chord-row">Dm                  A7         Dm</div><div class="lyric-row">Señor, Señor ten piedad, ten piedad</div></div>
+                            <div class="pair"><div class="chord-row">             F           A7</div><div class="lyric-row">Cristo ten piedad, ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="46">46. B.</div>
+                            <div class="pair"><div class="chord-row">Dm           F</div><div class="lyric-row">Señor ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Bb            A7</div><div class="lyric-row">Cristo ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="47">47. C.</div>
+                            <div class="pair"><div class="chord-row">C    F       C</div><div class="lyric-row">Señor ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">F             G</div><div class="lyric-row">Cristo ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-8">
+                            <div class="song-title" data-song="48">48. D.</div>
+                            <div class="pair"><div class="chord-row">D   D7   G Gm   D</div><div class="lyric-row">Señor, piedad, piedad.</div></div>
+                            <div class="pair"><div class="chord-row">E         A  A7</div><div class="lyric-row">Cristo, piedad.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">45</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m57">
+                <div class="front">
+                    <div class="header">Kirie Eleison</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="49">49. E.</div>
+                            <div class="pair"><div class="chord-row">A     D      A</div><div class="lyric-row">Señor ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Bm    B7     Bm</div><div class="lyric-row">Cristo ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Bm    B7    Bm</div><div class="lyric-row">Señor ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="50">50. F.</div>
+                            <div class="pair"><div class="chord-row">Am   Dm     Am</div><div class="lyric-row">Señor ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">F     G      Am</div><div class="lyric-row">Cristo ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Dm    E7    Am</div><div class="lyric-row">Señor ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="51">51. G.</div>
+                            <div class="pair"><div class="chord-row">Em           D   C  B7  Em</div><div class="lyric-row">Señor ten piedad, ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">G            D   C  B7  Em</div><div class="lyric-row">Cristo ten piedad, ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-8">
+                            <div class="song-title" data-song="52">52. H.</div>
+                            <div class="pair"><div class="chord-row">Am    G     Am</div><div class="lyric-row">Señor ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">F     G      Am</div><div class="lyric-row">Cristo ten piedad.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">46</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m58">
+                <div class="front">
+                    <div class="header">Kirie Eleison</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="53">53. I.</div>
+                            <div class="pair"><div class="chord-row">C    Dm     Em  F    G       C</div><div class="lyric-row">Señor ten piedad, Señor ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Am    G     F      G</div><div class="lyric-row">Cri --- sto ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="54">54. J.</div>
+                            <div class="pair"><div class="chord-row">C  Em Am     Em     F         C</div><div class="lyric-row">Señor ten piedad, Señor ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">F    G  Am   Em   F       G     Am</div><div class="lyric-row">Cristo ten piedad, Cristo ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="55">55. K.</div>
+                            <div class="pair"><div class="chord-row">Dm            Bb   C     Dm</div><div class="lyric-row">Ten piedad, Señor, ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Dm             Bb   C     Dm</div><div class="lyric-row">Cristo, ten piedad, ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-8">
+                            <div class="song-title" data-song="56">56. L.</div>
+                            <div class="pair"><div class="chord-row">G      C  G</div><div class="lyric-row">Kyrie Eleison.</div></div>
+                            <div class="pair"><div class="chord-row">A         Em</div><div class="lyric-row">Christe Eleison.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">47</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m59">
+                <div class="front">
+                    <div class="header">Kirie Eleison</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="57">57. M.</div>
+                            <div class="pair"><div class="chord-row">Am A7        Dm    G7         C</div><div class="lyric-row"> Señor ten piedad, Señor ten piedad,</div></div>
+                            <div class="pair"><div class="chord-row"> F          Dm  E7     Am</div><div class="lyric-row">Señor ten piedad, ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Am A7         Dm  G7            C</div><div class="lyric-row"> Cristo ten piedad, Cristo ten piedad,</div></div>
+                            <div class="pair"><div class="chord-row">F             Dm  E7     Am</div><div class="lyric-row">Cristo ten piedad, ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="58">58. N.</div>
+                            <div class="pair"><div class="chord-row">Dm   C    Bb   A7    Dm</div><div class="lyric-row">Seño  -  -  or ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">       C      Dm</div><div class="lyric-row">Cristo ten piedad.</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="59">59. Ñ.</div>
+                            <div class="pair"><div class="chord-row">Em    Am Em    C  D  Em</div><div class="lyric-row">Kyrie eleison, Señor ten piedad (2v).</div></div>
+                            <div class="pair"><div class="chord-row">Em     Am   Em  C  D  Em</div><div class="lyric-row">Christe eleison, Cristo ten piedad (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-8">
+                            <div class="song-title" data-song="60">60. O.</div>
+                            <div class="pair"><div class="chord-row">Dm    Bb     A</div><div class="lyric-row">Señor ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Dm    Gm     A</div><div class="lyric-row">Cristo ten piedad.</div></div>
+                            <div class="pair"><div class="chord-row">Dm    Bb     A</div><div class="lyric-row">Señor ten piedad,</div></div>
+                            <div class="pair"><div class="chord-row">Dm    Bb  A   D</div><div class="lyric-row">Señor ten piedad.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">48</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m60">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title decor-section-title-long" data-section="gloria">GLORIA</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m61">
+                <div class="front">
+                    <div class="header">Gloria</div>
+                    <div class="song-page">
+                        <div class="song-title" data-song="61">61. A.</div>
+                        <div class="pair"><div class="chord-row">C           Em</div><div class="lyric-row">GLORIA AL SEÑOR,</div></div>
+                        <div class="pair"><div class="chord-row">      F            G</div><div class="lyric-row">EN LO ALTO DE LOS CIELOS,</div></div>
+                        <div class="pair"><div class="chord-row">C         F             C</div><div class="lyric-row">PAZ EN LA TIERRA, A LOS HOMBRES</div></div>
+                        <div class="pair"><div class="chord-row">         G7    C</div><div class="lyric-row">DE BUENA VOLUNTAD.</div></div>
+                        <div class="pair"><div class="chord-row">F           G</div><div class="lyric-row">Señor te alabamos,</div></div>
+                        <div class="pair"><div class="chord-row">F             G</div><div class="lyric-row">Señor te bendecimos,</div></div>
+                        <div class="pair"><div class="chord-row">      C        Em</div><div class="lyric-row">te adoramos, Señor</div></div>
+                        <div class="pair"><div class="chord-row">F                      E   A</div><div class="lyric-row">gracias por tu inmensa gloria.</div></div>
+                        <div class="plain-block">
+                            <p>Tú eres el Cordero,</p>
+                            <p>que quitas el pecado</p>
+                            <p>ten piedad de nosotros,</p>
+                            <p>y escucha nuestra oración.</p>
+                        </div>
+                        <div class="plain-block">
+                            <p>Tú solo eres santo,</p>
+                            <p>tu solo el Altísimo,</p>
+                            <p>con el Espíritu Santo</p>
+                            <p>en la gloria de Dios Padre.</p>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">49</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m62">
+                <div class="front">
+                    <div class="header">Gloria</div>
+                    <div class="song-page small">
+                        <div class="song-title" data-song="62">62. B.</div>
+                        <div class="pair"><div class="chord-row">C        F          C</div><div class="lyric-row">GLORIA A DIOS EN EL CIELO</div></div>
+                        <div class="pair"><div class="chord-row">   F           C</div><div class="lyric-row">Y EN LA TIERRA PAZ A LOS</div></div>
+                        <div class="pair"><div class="chord-row">            G7       C</div><div class="lyric-row">HOMBRES QUE AMA EL SEÑOR.</div></div>
+                        <div class="pair"><div class="chord-row">C                     G7    C</div><div class="lyric-row">Por tu inmensa gloria te alabamos,</div></div>
+                        <div class="pair"><div class="chord-row">G7                   C</div><div class="lyric-row">te bendecimos, te adoramos,</div></div>
+                        <div class="pair"><div class="chord-row">                    F     G7</div><div class="lyric-row">te glorificamos, te damos gracias.</div></div>
+                        <div class="pair"><div class="chord-row">C</div><div class="lyric-row">Señor Dios Rey Celestial,</div></div>
+                        <div class="pair"><div class="chord-row">                   F C</div><div class="lyric-row">Dios Padre Todopoderoso,</div></div>
+                        <div class="pair"><div class="chord-row">G7                    C</div><div class="lyric-row">Señor Hijo único Jesucristo,</div></div>
+                        <div class="pair"><div class="chord-row">                           F        G7</div><div class="lyric-row">Señor Dios Cordero de Dios Hijo del Padre.</div></div>
+                        <div class="pair"><div class="chord-row">C</div><div class="lyric-row">Tú que quitas el pecado del mundo</div></div>
+                        <div class="pair"><div class="chord-row">                             F C</div><div class="lyric-row">ten piedad de nosotros,</div></div>
+                        <div class="pair"><div class="chord-row">G7</div><div class="lyric-row">Tú que quitas el pecado del mundo</div></div>
+                        <div class="pair"><div class="chord-row">                  C</div><div class="lyric-row">atiende a nuestra súplica,</div></div>
+                        <div class="pair"><div class="chord-row"> </div><div class="lyric-row">Tú que estás sentado a la derecha del Padre.</div></div>
+                        <div class="pair"><div class="chord-row">        F       G7</div><div class="lyric-row">Ten piedad de nosotros.</div></div>
+                        <div class="pair"><div class="chord-row">C                                F  C</div><div class="lyric-row">Porque solo Tú eres Santo, solo Tú Señor,</div></div>
+                        <div class="pair"><div class="chord-row">G7                    C</div><div class="lyric-row">sólo Tú Altísimo Jesucristo,</div></div>
+                        <div class="pair"><div class="chord-row">                             F             G7</div><div class="lyric-row">con el Espíritu Santo en la gloria de Dios Padre.</div></div>
+                        <div class="pair"><div class="chord-row">F C</div><div class="lyric-row">AMÉN.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">50</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m63">
+                <div class="front">
+                    <div class="header">Gloria</div>
+                    <div class="song-page tiny">
+                        <div class="song-title" data-song="63">63. C.</div>
+                        <div class="pair"><div class="chord-row">D       A7      Bm</div><div class="lyric-row">GLORIA, GLORIA, GLORIA,</div></div>
+                        <div class="pair"><div class="chord-row">     Em             A7</div><div class="lyric-row">AL SEÑOR DIOS EN EL CIELO.</div></div>
+                        <div class="pair"><div class="chord-row">D       A7      Bm        G</div><div class="lyric-row">Y EN LA TIERRA PAZ, A LOS HOMBRES</div></div>
+                        <div class="pair"><div class="chord-row">   A7         D</div><div class="lyric-row">DE BUENA VOLUNTAD.</div></div>
+                        <div class="pair"><div class="chord-row">      Bm     Em       A7</div><div class="lyric-row">Te alabamos y te bendecimos,</div></div>
+                        <div class="pair"><div class="chord-row">      D      Bm        Em   A7</div><div class="lyric-row">te adoramos, te glorificamos.</div></div>
+                        <div class="pair"><div class="chord-row">   D                Bm</div><div class="lyric-row">Te damos gracias, Señor,</div></div>
+                        <div class="pair"><div class="chord-row">               Em</div><div class="lyric-row">por tu inmensa gloria</div></div>
+                        <div class="pair"><div class="chord-row">   A7     G#</div><div class="lyric-row">te damos gracias,</div></div>
+                        <div class="pair"><div class="chord-row">         D          Bm        Em</div><div class="lyric-row">Señor, Señor, Dios Rey celestial,</div></div>
+                        <div class="pair"><div class="chord-row">     A7    D    Bm Em A7</div><div class="lyric-row">Dios Padre Todopoderoso.</div></div>
+                        <div class="pair"><div class="chord-row"> </div><div class="lyric-row">GLORIA…</div></div>
+                        <div class="pair"><div class="chord-row">Bm                    F#7</div><div class="lyric-row">Señor Hijo único Jesucristo,</div></div>
+                        <div class="pair"><div class="chord-row"> </div><div class="lyric-row">Señor, Dios, Cordero de Dios,</div></div>
+                        <div class="pair"><div class="chord-row">         Bm B7</div><div class="lyric-row">Hijo del Padre.</div></div>
+                        <div class="pair"><div class="chord-row">        Em         F#7      Bm</div><div class="lyric-row">Tú que quitas el pecado del mundo,</div></div>
+                        <div class="pair"><div class="chord-row">       Em          F#7      Bm B7</div><div class="lyric-row">ten piedad, ten piedad de nosotros.</div></div>
+                        <div class="pair"><div class="chord-row">       Em          F#7      Bm</div><div class="lyric-row">Tú que quitas el pecado del mundo,</div></div>
+                        <div class="pair"><div class="chord-row">  Em               F#7</div><div class="lyric-row">atiende a nuestras súplicas,</div></div>
+                        <div class="pair"><div class="chord-row">                   Bm   B7</div><div class="lyric-row">atiende a nuestras súplicas.</div></div>
+                        <div class="pair"><div class="chord-row">          Em       F#7        Bm</div><div class="lyric-row">Tú que estás a la derecha del Padre</div></div>
+                        <div class="pair"><div class="chord-row">       Em          F#7      Bm</div><div class="lyric-row">ten piedad, ten piedad de nosotros.</div></div>
+                        <div class="pair"><div class="chord-row">D           A7      Bm</div><div class="lyric-row">Porque solo Tú eres Santo,</div></div>
+                        <div class="pair"><div class="chord-row">     Em         A7</div><div class="lyric-row">solo Tú Señor Altísimo,</div></div>
+                        <div class="pair"><div class="chord-row">D        A7     Bm          Em</div><div class="lyric-row">con el Espíritu Santo en la gloria</div></div>
+                        <div class="pair"><div class="chord-row">A7         D</div><div class="lyric-row">de Dios Padre.</div></div>
+                        <div class="pair"><div class="chord-row">  Em D    Em A7 D</div><div class="lyric-row">A a mén,   a  amén.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">51</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m64">
+                <div class="front">
+                    <div class="header">Gloria</div>
+                    <div class="song-page ultra flow-cols">
+                        <div class="song-title" data-song="64">64. D.</div>
+                        <div class="pair"><div class="chord-row">C                   G7       C</div><div class="lyric-row">Gloria a Dios en el cielo, y en la tierra</div></div>
+                        <div class="pair"><div class="chord-row">F         C          Am      G7(3/4)</div><div class="lyric-row">paz a los hombres de buena voluntad.</div></div>
+                        <div class="pair"><div class="chord-row">      C              G7</div><div class="lyric-row">TE ALABAMOS, TE BENDECIMOS, TE</div></div>
+                        <div class="pair"><div class="chord-row">   C</div><div class="lyric-row">ADORAMOS.</div></div>
+                        <div class="pair"><div class="chord-row">Am        G7(4/4)         Am</div><div class="lyric-row">Te glorificamos, te damos gracias</div></div>
+                        <div class="pair"><div class="chord-row">               G7</div><div class="lyric-row">por tu inmensa gloria.</div></div>
+                        <div class="pair"><div class="chord-row">      C(3/4)         G7</div><div class="lyric-row">TE ALABAMOS, TE BENDECIMOS, TE</div></div>
+                        <div class="pair"><div class="chord-row">   C</div><div class="lyric-row">ADORAMOS.</div></div>
+                        <div class="pair"><div class="chord-row">G7(3)      Em(4/4)    Am        C</div><div class="lyric-row">Señor Dios Rey Celestial, Dios Padre</div></div>
+                        <div class="pair"><div class="chord-row">         G7</div><div class="lyric-row">Todopoderoso.</div></div>
+                        <div class="pair"><div class="chord-row">      C(3/4)         G7</div><div class="lyric-row">TE ALABAMOS, TE BENDECIMOS, TE</div></div>
+                        <div class="pair"><div class="chord-row">   C</div><div class="lyric-row">ADORAMOS.</div></div>
+                        <div class="pair"><div class="chord-row">C     F    Dm(4/4)   G7</div><div class="lyric-row">Señor Hijo único Jesucristo</div></div>
+                        <div class="pair"><div class="chord-row">      C(3/4)         G7</div><div class="lyric-row">TE ALABAMOS, TE BENDECIMOS, TE</div></div>
+                        <div class="pair"><div class="chord-row">   C</div><div class="lyric-row">ADORAMOS.</div></div>
+                        <div class="pair"><div class="chord-row">G7(2)  C(4/4)  G7      Cm</div><div class="lyric-row">Señor, Dios Cordero de Dios</div></div>
+                        <div class="pair"><div class="chord-row">         G7</div><div class="lyric-row">Hijo del Padre</div></div>
+                        <div class="pair"><div class="chord-row">      C(3/4)         G7</div><div class="lyric-row">TE ALABAMOS, TE BENDECIMOS, TE</div></div>
+                        <div class="pair"><div class="chord-row">   C</div><div class="lyric-row">ADORAMOS.</div></div>
+                        <div class="pair"><div class="chord-row">G7     Cm                   G7</div><div class="lyric-row">Tú que quitas el pecado del mundo</div></div>
+                        <div class="pair"><div class="chord-row">A(3)            G7</div><div class="lyric-row">TEN PIEDAD DE NOSOTROS.</div></div>
+                        <div class="pair"><div class="chord-row">Cm     G7          Cm       G7</div><div class="lyric-row">Tú que quitas el pecado del mundo</div></div>
+                        <div class="pair"><div class="chord-row"> Cm               G7</div><div class="lyric-row">atiende a nuestra súplica</div></div>
+                        <div class="pair"><div class="chord-row">A(3)            G7</div><div class="lyric-row">TEN PIEDAD DE NOSOTROS.</div></div>
+                        <div class="pair"><div class="chord-row">Cm              G7          A         G7</div><div class="lyric-row">Tú que estás sentado a la derecha del Padre</div></div>
+                        <div class="pair"><div class="chord-row">A(3)            G7</div><div class="lyric-row">TEN PIEDAD DE NOSOTROS.</div></div>
+                        <div class="pair"><div class="chord-row">C           F       C      Am         G7</div><div class="lyric-row">Porque solo Tú eres Santo, solo Tú, Señor</div></div>
+                        <div class="pair"><div class="chord-row">      C(3/4)         G7</div><div class="lyric-row">TE ALABAMOS, TE BENDECIMOS, TE</div></div>
+                        <div class="pair"><div class="chord-row">   C</div><div class="lyric-row">ADORAMOS.</div></div>
+                        <div class="pair"><div class="chord-row">(4/4)    F      C       Am</div><div class="lyric-row">Con el Espíritu Santo en la gloria</div></div>
+                        <div class="pair"><div class="chord-row">G(2)    C</div><div class="lyric-row">de Dios Padre</div></div>
+                        <div class="pair"><div class="chord-row">      C(3/4)         G7</div><div class="lyric-row">TE ALABAMOS, TE BENDECIMOS,</div></div>
+                        <div class="pair"><div class="chord-row"> C</div><div class="lyric-row">AMÉN.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">52</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m65">
+                <div class="front">
+                    <div class="header">Gloria</div>
+                    <div class="song-page tiny">
+                        <div class="song-title" data-song="65">65. E.</div>
+                        <div class="pair"><div class="chord-row">G                           B7  Em</div><div class="lyric-row">GLORIA, GLORIA A DIOS EN EL CIELO,</div></div>
+                        <div class="pair"><div class="chord-row">  C           G</div><div class="lyric-row">Y EN LA TIERRA PAZ</div></div>
+                        <div class="pair"><div class="chord-row">        Am        D       G C G</div><div class="lyric-row">A LOS HOMBRES QUE AMA EL SEÑOR.</div></div>
+                        <div class="pair"><div class="chord-row">         G</div><div class="lyric-row">Por tu inmensa gloria te alabamos,</div></div>
+                        <div class="pair"><div class="chord-row">Em                C  D</div><div class="lyric-row">te bendecimos, te adoramos;</div></div>
+                        <div class="pair"><div class="chord-row">A                             D</div><div class="lyric-row">te glorificamos, te damos gracias</div></div>
+                        <div class="pair"><div class="chord-row">G                     C</div><div class="lyric-row">Señor, Dios Rey Celestial.</div></div>
+                        <div class="pair"><div class="chord-row">           D        G</div><div class="lyric-row">Dios Padre Todopoderoso.</div></div>
+                        <div class="pair"><div class="chord-row">           G</div><div class="lyric-row">Señor Hijo único Jesucristo,</div></div>
+                        <div class="pair"><div class="chord-row">Em              C      D</div><div class="lyric-row">Señor Dios, Cordero de Dios;</div></div>
+                        <div class="pair"><div class="chord-row">A           D</div><div class="lyric-row">Hijo del Padre,</div></div>
+                        <div class="pair"><div class="chord-row">G                            C</div><div class="lyric-row">Tú que quitas el pecado del mundo,</div></div>
+                        <div class="pair"><div class="chord-row">       D           G</div><div class="lyric-row">ten piedad de nosotros.</div></div>
+                        <div class="pair"><div class="chord-row">        G</div><div class="lyric-row">Tú que quitas el pecado del mundo,</div></div>
+                        <div class="pair"><div class="chord-row">        C        D</div><div class="lyric-row">atiende nuestra súplica;</div></div>
+                        <div class="pair"><div class="chord-row">A                                     D</div><div class="lyric-row">Tú que estás sentado a la derecha del Padre,</div></div>
+                        <div class="pair"><div class="chord-row">                 G</div><div class="lyric-row">ten piedad de nosotros.</div></div>
+                        <div class="pair"><div class="chord-row">        G</div><div class="lyric-row">Porque solo Tú eres Santo,</div></div>
+                        <div class="pair"><div class="chord-row">     C      D</div><div class="lyric-row">solo Tú, Señor;</div></div>
+                        <div class="pair"><div class="chord-row">A                      D</div><div class="lyric-row">solo Tú Altísimo Jesucristo,</div></div>
+                        <div class="pair"><div class="chord-row">G               C</div><div class="lyric-row">con el Espíritu Santo</div></div>
+                        <div class="pair"><div class="chord-row">                     D        G</div><div class="lyric-row">en la gloria de Dios Padre, amén.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">53</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m66">
+                <div class="front">
+                    <div class="header">Gloria</div>
+                    <div class="song-page tiny">
+                        <div class="song-title" data-song="66">66. F.</div>
+                        <div class="pair"><div class="chord-row">F                           A7 Dm</div><div class="lyric-row">GLORIA, GLORIA A DIOS EN EL CIELO,</div></div>
+                        <div class="pair"><div class="chord-row">  Bb            F</div><div class="lyric-row">Y EN LA TIERRA PAZ</div></div>
+                        <div class="pair"><div class="chord-row">         Gm       C        F Bb F</div><div class="lyric-row">A LOS HOMBRES QUE AMA EL SEÑOR.</div></div>
+                        <div class="pair"><div class="chord-row">         F</div><div class="lyric-row">Por tu inmensa gloria te alabamos,</div></div>
+                        <div class="pair"><div class="chord-row">Dm              Bb   C</div><div class="lyric-row">te bendecimos, te adoramos;</div></div>
+                        <div class="pair"><div class="chord-row">G                             C</div><div class="lyric-row">te glorificamos, te damos gracias</div></div>
+                        <div class="pair"><div class="chord-row">F                     Bb</div><div class="lyric-row">Señor, Dios Rey Celestial.</div></div>
+                        <div class="pair"><div class="chord-row">           C       F</div><div class="lyric-row">Dios Padre Todopoderoso.</div></div>
+                        <div class="pair"><div class="chord-row">           F</div><div class="lyric-row">Señor Hijo único Jesucristo,</div></div>
+                        <div class="pair"><div class="chord-row">Dm              Bb     C</div><div class="lyric-row">Señor Dios, Cordero de Dios;</div></div>
+                        <div class="pair"><div class="chord-row">G          C</div><div class="lyric-row">Hijo del Padre,</div></div>
+                        <div class="pair"><div class="chord-row">F                           Bb</div><div class="lyric-row">Tú que quitas el pecado del mundo,</div></div>
+                        <div class="pair"><div class="chord-row">       C           F</div><div class="lyric-row">ten piedad de nosotros.</div></div>
+                        <div class="pair"><div class="chord-row">       F</div><div class="lyric-row">Tú que quitas el pecado del mundo,</div></div>
+                        <div class="pair"><div class="chord-row">        Bb      C</div><div class="lyric-row">atiende nuestra súplica;</div></div>
+                        <div class="pair"><div class="chord-row">G                                     C</div><div class="lyric-row">Tú que estás sentado a la derecha del Padre,</div></div>
+                        <div class="pair"><div class="chord-row">                F</div><div class="lyric-row">ten piedad de nosotros.</div></div>
+                        <div class="pair"><div class="chord-row">         F</div><div class="lyric-row">Porque solo Tú eres Santo,</div></div>
+                        <div class="pair"><div class="chord-row">     Bb     C</div><div class="lyric-row">solo Tú, Señor;</div></div>
+                        <div class="pair"><div class="chord-row">G                    C</div><div class="lyric-row">solo Tú Altísimo Jesucristo,</div></div>
+                        <div class="pair"><div class="chord-row">F               Bb</div><div class="lyric-row">con el Espíritu Santo</div></div>
+                        <div class="pair"><div class="chord-row">                     C       F</div><div class="lyric-row">en la gloria de Dios Padre, amén.</div></div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">54</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m67">
+                <div class="front decor-section-page">
+                    <div class="decor-section-content">
+                        <div class="decor-section-title decor-section-title-long" data-section="aleluya">ALELUYA</div>
+                        <img class="decor-section-leaves" src="assets/hojasdis.png" alt="">
+                    </div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m68">
+                <div class="front">
+                    <div class="header">Aleluya</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="67">67. A.</div>
+                            <div class="pair"><div class="chord-row">C           Am</div><div class="lyric-row">ALELUYA, ALELUYA</div></div>
+                            <div class="pair"><div class="chord-row">   Dm  G7  C</div><div class="lyric-row">ALELU   - YA (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="68">68. B.</div>
+                            <div class="pair"><div class="chord-row">D       Bm     Em   A7</div><div class="lyric-row">ALELU - YA, ALELU - YA,</div></div>
+                            <div class="pair"><div class="chord-row">    D  G D D7   G   A7</div><div class="lyric-row">ALELU - YA, ALELU - YA,</div></div>
+                            <div class="pair"><div class="chord-row">    D   Bm     Em A7  D</div><div class="lyric-row">ALELU - YA, ALELU  -  YA.</div></div>
+                            <div class="pair"><div class="chord-row">                          Bm</div><div class="lyric-row">Porque Cristo, nuestro hermano</div></div>
+                            <div class="pair"><div class="chord-row">Em      A7       G          D D7</div><div class="lyric-row">ha resucitado, María, alégrate.</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="69">69. C.</div>
+                            <div class="pair"><div class="chord-row">G    C        G        D7</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA,</div></div>
+                            <div class="pair"><div class="chord-row">     G</div><div class="lyric-row">ALELUYA.</div></div>
+                            <div class="pair"><div class="chord-row">G    C        G   D7   G</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA.</div></div>
+                            <div class="pair"><div class="chord-row">                          D7</div><div class="lyric-row">Con las guitarras y los requintos,</div></div>
+                            <div class="pair"><div class="chord-row">            G</div><div class="lyric-row">alabad al Señor.</div></div>
+                        </div>
+                        <div class="short-song pos-8">
+                            <div class="song-title" data-song="70">70. D.</div>
+                            <div class="pair"><div class="chord-row">A      D            A</div><div class="lyric-row">ALELU- -YA, ALELU- -YA EL SEÑOR</div></div>
+                            <div class="pair"><div class="chord-row">(E)        E (A)</div><div class="lyric-row">ES NUESTRO REY (2v).</div></div>
+                            <div class="pair"><div class="chord-row">                   D       A</div><div class="lyric-row">Cantad al Señor un cántico nuevo;</div></div>
+                            <div class="pair"><div class="chord-row">       E            A</div><div class="lyric-row">porque ha hecho maravillas.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">55</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m69">
+                <div class="front">
+                    <div class="header">Aleluya</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="71">71. E.</div>
+                            <div class="pair"><div class="chord-row">G             Em       C  Am</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA,</div></div>
+                            <div class="pair"><div class="chord-row">     D7     (G)</div><div class="lyric-row">ALELUYA (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="72">72. F.</div>
+                            <div class="pair"><div class="chord-row">G  Am  D   G       Am  D7  G</div><div class="lyric-row">A  LE  LU  YA,   A LE  LU  YA (2v).</div></div>
+                            <div class="pair"><div class="chord-row"> G         Am</div><div class="lyric-row">Al Señor alabaremos,</div></div>
+                            <div class="pair"><div class="chord-row">D7       G</div><div class="lyric-row">aleluya, aleluya,</div></div>
+                            <div class="pair"><div class="chord-row">            Am</div><div class="lyric-row">y su nombre cantaremos,</div></div>
+                            <div class="pair"><div class="chord-row">D7       G</div><div class="lyric-row">aleluya, aleluya.</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="73">73. G.</div>
+                            <div class="pair"><div class="chord-row">G            C</div><div class="lyric-row">ALELU-YA, ALELU-YA,</div></div>
+                            <div class="pair"><div class="chord-row">   D7        G</div><div class="lyric-row">ALELU-YA, ALELU-YA (2v).</div></div>
+                            <div class="pair"><div class="chord-row">                        C</div><div class="lyric-row">Yo soy el camino, la verdad y la vida.</div></div>
+                            <div class="pair"><div class="chord-row">   D7                 G</div><div class="lyric-row">Yo soy el camino y la resurrección.</div></div>
+                        </div>
+                        <div class="short-song pos-8">
+                            <div class="song-title" data-song="74">74. H.</div>
+                            <div class="pair"><div class="chord-row">Em                       E7</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA,</div></div>
+                            <div class="pair"><div class="chord-row">Am                   B7 Em</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">56</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m70">
+                <div class="front">
+                    <div class="header">Aleluya</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="75">75. I.</div>
+                            <div class="pair"><div class="chord-row">G        Em       Am   D7</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA,</div></div>
+                            <div class="pair"><div class="chord-row">G        Em       Am D7 G</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="76">76. J.</div>
+                            <div class="pair"><div class="chord-row">A        D     A</div><div class="lyric-row">ALELUYA, A-LELUYA,</div></div>
+                            <div class="pair"><div class="chord-row">D    A      E  A</div><div class="lyric-row">ALELUYA, ALELUYA.</div></div>
+                            <div class="pair"><div class="chord-row">A                     D</div><div class="lyric-row">Un gran profeta ha surgido entre</div></div>
+                            <div class="pair"><div class="chord-row">  A       D           A         E  A</div><div class="lyric-row">nosotros, Dios ha visitado a su pueblo.</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="77">77. K.</div>
+                            <div class="pair"><div class="chord-row">D        Bm       G   A7 D</div><div class="lyric-row">ALELUYA, ALELUYA, ALE-LUYA (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-8">
+                            <div class="song-title" data-song="78">78. L.</div>
+                            <div class="pair"><div class="chord-row">Dm       C        Bb       A7</div><div class="lyric-row">ALELUYA, ALELUYA, A  LELU YA.</div></div>
+                            <div class="pair"><div class="chord-row">Dm       C        Bb A7   Dm</div><div class="lyric-row">ALELUYA, ALELUYA, A   LELUYA.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">57</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m71">
+                <div class="front">
+                    <div class="header">Aleluya</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="79">79. M.</div>
+                            <div class="pair"><div class="chord-row">C           Am       F  G  C Em</div><div class="lyric-row">ALELUYA, ALELUYA, ALELU - YA,</div></div>
+                            <div class="pair"><div class="chord-row">   Am       Em       F G C</div><div class="lyric-row">ALELUYA, ALELUYA, ALELU- YA (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="80">80. N.</div>
+                            <div class="pair"><div class="chord-row">C        G       Am</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA,</div></div>
+                            <div class="pair"><div class="chord-row">Em     F    C    G  (C)</div><div class="lyric-row">ALELUYA, ALELU - YA (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="81">81. Ñ.</div>
+                            <div class="pair"><div class="chord-row">D  G     A  F#m</div><div class="lyric-row">ALELUYA, ALELUYA</div></div>
+                            <div class="pair"><div class="chord-row">D  Em    A7 D</div><div class="lyric-row">ALELUYA, ALELUYA (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-8">
+                            <div class="song-title" data-song="82">82. O.</div>
+                            <div class="pair"><div class="chord-row">Em          D</div><div class="lyric-row">ALELU - YA  A - LELU - YA</div></div>
+                            <div class="pair"><div class="chord-row">  C   B7     Em</div><div class="lyric-row">A - LELU - - YA (2v).</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">58</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+
+            <div class="paper" id="m72">
+                <div class="front">
+                    <div class="header">Aleluya</div>
+                    <div class="short-grid">
+                        <div class="short-song pos-1">
+                            <div class="song-title" data-song="83">83. P.</div>
+                            <div class="pair"><div class="chord-row">G           C  G   C  D7 G</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA (2v).</div></div>
+                        </div>
+                        <div class="short-song pos-4">
+                            <div class="song-title" data-song="84">84. Q.</div>
+                            <div class="pair"><div class="chord-row">D       Bm      F#m   B7  Em A7</div><div class="lyric-row">ALELUYA, ALELUYA, ALE LU  YA,</div></div>
+                            <div class="pair"><div class="chord-row">D       Bm        G  A7 D</div><div class="lyric-row">ALELUYA, ALELUYA, ALELUYA.</div></div>
+                        </div>
+                        <div class="short-song pos-5">
+                            <div class="song-title" data-song="85">85. R.</div>
+                            <div class="pair"><div class="chord-row">D    F#m   G    D</div><div class="lyric-row">ALELUYA,   ALELUYA,</div></div>
+                            <div class="pair"><div class="chord-row">F#m  G  A  Em E7 A</div><div class="lyric-row">ALE  LUYA, ALELUYA</div></div>
+                            <div class="pair"><div class="chord-row">D    F#m  G    D</div><div class="lyric-row">ALELUYA,  ALELUYA,</div></div>
+                            <div class="pair"><div class="chord-row">F#m  G     Em A  D</div><div class="lyric-row">ALE  LUYA, A LELUYA.</div></div>
+                        </div>
+                    </div>
+                    <div class="footer"><span class="footer-img">🎸</span><span class="page-num">59</span></div>
+                </div>
+                <div class="back blank-page"></div>
+            </div>
+        </div>
+        </div>
+
+        <button id="prevBtn" class="btn-nav" type="button">❮</button>
+        <button id="nextBtn" class="btn-nav" type="button">❯</button>
+    </div>
+
+    <script src="script.js?v=7"></script>
+</body>
+</html>
