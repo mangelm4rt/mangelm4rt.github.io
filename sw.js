@@ -1,15 +1,3 @@
-// Service Worker — Cantoral Mayo (offline)
-// Estrategia:
-//  • Navegación (index.html) y cantos.json: NETWORK-FIRST con TIMEOUT — si la
-//    red responde rápido llega lo último; si tarda o no hay, arranca AL
-//    INSTANTE desde caché (clave para la PWA instalada con señal débil).
-//    La respuesta de red se cachea igual en segundo plano.
-//  • Resto del mismo origen (css/js con ?v=N, SVGs, PNGs): STALE-WHILE-
-//    REVALIDATE — responde ya desde caché y refresca la copia de fondo. Los
-//    archivos versionados (?v=N) nunca se sirven viejos porque un cambio de
-//    versión cambia la URL y fuerza red.
-//  • Fuentes de Google (otro origen): CACHE-FIRST (son inmutables/versionadas).
-// Sube CACHE_VERSION solo si quieres invalidar TODO el precache de golpe.
 const CACHE_VERSION = "cantoral-ultopt139";
 const NETWORK_TIMEOUT_MS = 2500;
 const PRECACHE = [
@@ -83,9 +71,6 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_VERSION).then((cache) =>
-      // addAll falla si un solo recurso falla; usamos add individual tolerante.
-      // Codificamos la URL (# -> %23, ♭ -> %E2%99%AD) porque hay SVGs de acordes
-      // como "C#7.svg" o "B♭.svg"; así coincide con cómo los pide la app en runtime.
       Promise.all(PRECACHE.map((url) =>
         cache.add(encodeURI(url).replace(/#/g, "%23")).catch(() => null)
       ))
@@ -101,8 +86,6 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Trae de la red cacheando la respuesta; si la red tarda más que el timeout o
-// falla, responde desde caché (la red sigue y actualiza la caché de fondo).
 function networkFirstWithTimeout(req, fallbackUrl) {
   const network = fetch(req).then((res) => {
     const copy = res.clone();
@@ -123,7 +106,6 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
 
-  // Otros orígenes (Google Fonts, etc.): cache-first.
   if (url.origin !== self.location.origin) {
     event.respondWith(
       caches.match(req).then((hit) =>
@@ -137,8 +119,6 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Documento y contenido editable sin versión: red fresca si es rápida,
-  // caché al instante si no.
   if (req.mode === "navigate") {
     event.respondWith(networkFirstWithTimeout(req, "index.html"));
     return;
@@ -148,7 +128,6 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Estáticos del mismo origen: stale-while-revalidate.
   event.respondWith(
     caches.match(req).then((hit) => {
       const network = fetch(req).then((res) => {
@@ -159,4 +138,4 @@ self.addEventListener("fetch", (event) => {
       return hit || network;
     })
   );
-});
+});
