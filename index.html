@@ -1,7 +1,10 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="sky-lite">
 <head>
     <meta charset="UTF-8">
+    <!-- Cielo reducido GENERAL (todos los navegadores, incl. WebKit/iOS): starfield
+         acotado a la pagina y estatico. Evita el teselado/paint-parcial/churn del
+         compositor (bug visto en Samsung) en cualquier GPU. Clase fija = pre-pintado. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Cantoral Mayo ✨</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -13,7 +16,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Mayo">
-    <link rel="stylesheet" href="styles.css?v=213">
+    <link rel="stylesheet" href="styles.css?v=214">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -382,7 +385,7 @@
 
     <div class="share-toast" id="shareToast" role="status" aria-live="polite"></div>
 
-    <script src="script.js?v=215"></script>
+    <script src="script.js?v=216"></script>
     <script>
         // Registro del Service Worker (offline / instalable). No bloquea el arranque.
         // En DESARROLLO (localhost / 127.0.0.1 / file:) NO se registra y se
@@ -406,4 +409,4 @@
         }
     </script>
 </body>
-</html>
+</html>

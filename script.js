@@ -3228,7 +3228,9 @@ if(document.body.classList.contains("dark-mode")) startFireflies();}
         const img=new Image();
         img.onload=function(){
             try{
-                const S=0.92, scale=(window.devicePixelRatio||1)>1?2:1.5;
+                // Samsung/Android: textura mas chica = menos teselado del compositor.
+                // Antes 2x en DPR>1 daba ~1840x2392; bajamos a 1.5x (~1380x1794).
+                const S=0.92, scale=(window.devicePixelRatio||1)>1?1.5:1.25;
                 const W=Math.round(1000*S), H=Math.round(1300*S);
                 const c=document.createElement("canvas"); c.width=W*scale; c.height=H*scale;
                 const ctx=c.getContext("2d"); ctx.scale(scale,scale); ctx.drawImage(img,0,0,W,H);
@@ -4889,4 +4891,4 @@ if(document.body.classList.contains("dark-mode")) startFireflies();}
     window.addEventListener("resize", function () {
         if (document.body.classList.contains("tour-on") && stops.length) place(stops[idx]);
     });
-})();
+})();

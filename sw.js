@@ -1,4 +1,4 @@
-const CACHE_VERSION = "cantoral-ultopt140";
+const CACHE_VERSION = "cantoral-ultopt141";
 const NETWORK_TIMEOUT_MS = 2500;
 const PRECACHE = [
   "./",
@@ -138,4 +138,4 @@ self.addEventListener("fetch", (event) => {
       return hit || network;
     })
   );
-});
+});
