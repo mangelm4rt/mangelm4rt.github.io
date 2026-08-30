@@ -608,6 +608,23 @@ body.dark-mode .decor-section-title {
     color: #d79a8c;
 }
 
+/* FIX Samsung/Android (modo oscuro): el titulo de la divisora tiene transform
+   (scaleX/scaleY) + z-index = capa GPU propia que en el compositor de Chromium-
+   Android ESCAPA a la backface-visibility del padre y al orden de pintado, y
+   flota por encima de la pagina de enfrente (se veia "INDICE" sobre la Plumeria
+   al retroceder). Damos backface-visibility a las hijas, y como refuerzo la
+   divisora que NO esta en escena no pinta su titulo/hojas. */
+.decor-section-title,
+.decor-section-leaves,
+.decor-section-content {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.paper:not(.onstage) .decor-section-title,
+.paper:not(.onstage) .decor-section-leaves {
+    visibility: hidden;
+}
+
 .back {
     transform: rotateY(180deg);
 }
