@@ -2548,6 +2548,19 @@ body.flipping .dict-page::before {
 body.dark-mode .decor-section-page > *,
 body.dark-mode .index-page > *,
 body.dark-mode .dict-page > * { position: relative; z-index: 1; }
+/* La regla `> *` de arriba (sube el contenido sobre el starfield) tambien pegaba a
+   los BOTONES ABSOLUTOS que cuelgan directo de la pagina (guia de acordes, Aa/zoom,
+   T): en oscuro pasaban a `relative` y caian al flujo (abajo-izq, tamano/pos malos).
+   Se les restaura `absolute`. Solo pasa en index/dict/decor (en cantos van en .footer). */
+body.dark-mode .index-page > .guide-btn,
+body.dark-mode .index-page > .zoom-toggle,
+body.dark-mode .index-page > .transpose-btn,
+body.dark-mode .dict-page > .guide-btn,
+body.dark-mode .dict-page > .zoom-toggle,
+body.dark-mode .dict-page > .transpose-btn,
+body.dark-mode .decor-section-page > .zoom-toggle {
+    position: absolute;
+}
 body.dark-mode .plumeria-page > .plumeria-wrap { z-index: 1; }
 
 /* ===== Intento 3 (Samsung/Android, modo oscuro) ===== */

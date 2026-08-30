@@ -1029,9 +1029,14 @@ function isSinglePageMode() {
 
 function getViewportSize() {
     const root = document.querySelector(".container") || document.documentElement;
+    // iOS Safari: `.container` es 100dvh, pero en la 1a carga (barra de URL sin asentar)
+    // clientHeight reporta un alto que no coincide con lo VISIBLE -> el libro se escala mal
+    // (chico, con negro abajo) hasta recargar. `visualViewport.height` da el area visible
+    // REAL en todo momento; se prefiere cuando existe.
+    const vv = window.visualViewport;
     return {
-        width: root.clientWidth || window.innerWidth,
-        height: root.clientHeight || window.innerHeight,
+        width: (vv && vv.width) || root.clientWidth || window.innerWidth,
+        height: (vv && vv.height) || root.clientHeight || window.innerHeight,
     };
 }
 
@@ -1106,6 +1111,26 @@ try {
         applyScale(); refitVisible();
     });
 } catch (e) {}
+// FIX iOS Safari: en la 1a carga la barra de URL aun no se asienta, asi que la
+// medicion del viewport sale distinta del area real y el libro se escala mal (chico,
+// choca con la barra) hasta recargar. iOS NO dispara "resize" fiable al mostrar/ocultar
+// la barra, pero SI reporta el area visible por visualViewport; escuchamos ahi y
+// re-aplicamos unas veces tras load para atrapar el asentamiento inicial.
+if (window.visualViewport) {
+    let vvTimer = null;
+    const onVV = () => {
+        applyScale();
+        clearTimeout(vvTimer);
+        vvTimer = window.setTimeout(refitVisible, 200);
+    };
+    window.visualViewport.addEventListener("resize", onVV);
+    window.visualViewport.addEventListener("scroll", onVV);
+}
+window.addEventListener("load", () => {
+    requestAnimationFrame(() => { applyScale(); refitVisible(); });
+    setTimeout(() => { applyScale(); refitVisible(); }, 300);
+    setTimeout(() => { applyScale(); refitVisible(); }, 800);
+});
 
 function setTheme(isDark) {
     document.body.classList.toggle("dark-mode", isDark);

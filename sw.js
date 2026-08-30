@@ -1,4 +1,4 @@
-const CACHE_VERSION = "cantoral-ultopt141";
+const CACHE_VERSION = "cantoral-ultopt142";
 const NETWORK_TIMEOUT_MS = 2500;
 const PRECACHE = [
   "./",
