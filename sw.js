@@ -1,4 +1,4 @@
-const CACHE_VERSION = "cantoral-ultopt142";
+const CACHE_VERSION = "cantoral-ultopt143";
 const NETWORK_TIMEOUT_MS = 2500;
 const PRECACHE = [
   "./",
@@ -20,7 +20,7 @@ const PRECACHE = [
   "assets/hojasdis.png",
   "cantos.json",
   "styles.css?v=212",
-  "script.js?v=215",
+  "script.js?v=218",
   "assets/qr_cantoralmayo.svg?v=2",
   "assets/guia_acordes.svg?v=2",
   "assets/guia_acordes_zurdo.svg?v=1",

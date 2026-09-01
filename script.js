@@ -1119,6 +1119,12 @@ try {
 if (window.visualViewport) {
     let vvTimer = null;
     const onVV = () => {
+        // NO re-escalar cuando el teclado está abierto: al enfocar el buscador iOS
+        // encoge visualViewport y esto disparaba un re-fit que MOVÍA el libro entero
+        // (bug reportado). El buscador tapa el libro de todos modos.
+        if (document.body.classList.contains("searching")) return;
+        const ae = document.activeElement;
+        if (ae && (ae.tagName === "INPUT" || ae.tagName === "TEXTAREA" || ae.isContentEditable)) return;
         applyScale();
         clearTimeout(vvTimer);
         vvTimer = window.setTimeout(refitVisible, 200);
